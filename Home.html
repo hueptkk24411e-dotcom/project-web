@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <p> trang cuối </p>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petopia Footer</title>
+    <title>Petopia Footer Full Width</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* RESET & CƠ BẢN */
         * {
             margin: 0;
             padding: 0;
@@ -15,80 +15,98 @@
             font-family: 'Nunito', sans-serif;
         }
         body {
-            background-color: #f5f5f5; /* Màu nền web giả định */
+            /* Loại bỏ khoảng trắng mặc định của trình duyệt để full màn hình */
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: #f5f5f5;
         }
         ul {
             list-style: none;
         }
         a {
             text-decoration: none;
-            color: #333;
+            color: #555;
+            transition: color 0.3s;
         }
-        
-        /* FOOTER CONTAINER */
-        .footer {
-            background-color: #fffaf0; /* Nền be nhạt của footer */
-            color: #333;
-            margin-top: 50px;
-            font-size: 14px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
+        a:hover {
+            color: #f7941d;
         }
 
-        /* --- FOOTER TOP --- */
+        /* CONTAINER (Khung chứa nội dung canh giữa) */
+        .container {
+            max-width: 1440px; /* Tăng độ rộng tối đa */
+            width: 95%; /* Trải rộng ra 95% màn hình */
+            margin: 0 auto;
+        }
+
+        /* --- PHẦN 1: FOOTER TOP (Nền màu be) --- */
+        .footer-top-bg {
+            background-color: #fdfaf6; /* Màu nền be nhạt */
+            width: 100%; /* Đảm bảo background full màn hình */
+            border-top: 1px solid #eee;
+        }
         .footer-top {
             display: flex;
             justify-content: space-between;
-            padding: 40px 0;
-            position: relative;
+            padding: 50px 0;
         }
         .footer-col {
             flex: 1;
-            padding: 0 10px;
+            padding-right: 20px;
         }
         .footer-col h4 {
             color: #333;
             font-size: 16px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-transform: uppercase;
             font-weight: 800;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        /* Icon trên tiêu đề */
         .col-icon {
-            color: #4CAF50; /* Màu xanh lá cây Petopia */
+            color: #4CAF50;
             font-size: 20px;
         }
         .footer-col ul li {
-            margin-bottom: 12px;
-        }
-        .footer-col ul li a:hover {
-            color: #f7941d; /* Đổi sang cam khi hover */
+            margin-bottom: 15px;
+            font-size: 15px;
         }
 
-        /* Cột 1: Thông tin liên hệ */
+        /* Cột thông tin liên hệ */
         .col-info .logo {
             max-width: 180px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            display: block;
         }
         .contact-list li {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 15px;
             margin-bottom: 15px;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.5;
         }
         .contact-list i {
-            margin-top: 4px;
+            margin-top: 3px;
+            color: #333;
+        }
+        .social-wrap {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .social-wrap span {
+            font-size: 12px;
+            font-weight: bold;
+            width: 70px;
         }
         .social-icons {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
         }
         .social-icons a {
             font-size: 24px;
@@ -98,33 +116,27 @@
         .social-icons .fa-tiktok { color: #000000; }
         .social-icons .fa-youtube { color: #FF0000; }
 
-        /* Cột 5: Hệ thống cửa hàng */
+        /* Nút xem cửa hàng */
         .store-btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            border: 2px solid #4CAF50;
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: 1px solid #4CAF50;
             color: #4CAF50;
             border-radius: 25px;
             font-weight: bold;
-            transition: all 0.3s ease;
+            font-size: 14px;
         }
         .store-btn:hover {
             background-color: #4CAF50;
             color: white;
         }
-        .pet-image-deco {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            height: 200px;
-            z-index: 1;
-        }
 
-        /* --- FOOTER FEATURES (Khối xanh lá) --- */
+        /* --- PHẦN 2: FOOTER FEATURES (Nền màu xanh lá nhạt) --- */
         .footer-features {
-            background-color: #eef7eb; /* Xanh lá nhạt */
-            padding: 20px 0;
+            background-color: #eef7eb; 
+            width: 100%;
+            padding: 25px 0;
             border-top: 1px solid #d5ecd0;
             border-bottom: 1px solid #d5ecd0;
         }
@@ -137,52 +149,60 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            width: 20%;
+            flex: 1;
+            padding-right: 15px;
         }
         .feature-icon {
             width: 45px;
             height: 45px;
-            background-color: #f7941d;
+            background-color: #f7941d; /* Cam mặc định */
             color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 20px;
+            flex-shrink: 0;
         }
-        /* Icon màu xanh cho cam kết chính hãng */
+        /* Chỉnh màu icon theo đúng hình mẫu của bạn */
         .feature-item:nth-child(1) .feature-icon,
         .feature-item:nth-child(3) .feature-icon,
         .feature-item:nth-child(5) .feature-icon {
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* Xanh lá */
         }
         .feature-text h5 {
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 800;
             color: #333;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
             text-transform: uppercase;
         }
         .feature-text p {
             font-size: 13px;
-            color: #555;
+            color: #666;
+            line-height: 1.4;
         }
 
-        /* --- FOOTER PARTNERS (Thanh toán & Vận chuyển) --- */
-        .footer-partners {
+        /* --- PHẦN 3: FOOTER PARTNERS & BOTTOM (Nền trắng) --- */
+        .footer-bottom-bg {
             background-color: #ffffff;
-            padding: 30px 0;
+            width: 100%;
+        }
+        
+        /* Phương thức thanh toán & Vận chuyển */
+        .footer-partners {
+            padding: 40px 0 20px 0;
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px solid #eee;
         }
         .partner-group {
             width: 48%;
         }
         .partner-group h4 {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #555;
             text-transform: uppercase;
         }
         .partner-logos {
@@ -192,29 +212,30 @@
             flex-wrap: wrap;
         }
         .partner-logos img {
-            height: 35px;
+            height: 40px;
             object-fit: contain;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            padding: 2px 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            background: #fff;
         }
 
-        /* --- FOOTER BOTTOM (Bản quyền & Đăng ký) --- */
+        /* Bản quyền & Form đăng ký */
         .footer-bottom {
-            background-color: #ffffff;
-            padding: 20px 0;
+            padding: 20px 0 50px 0;
         }
         .bottom-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid #f7941d; /* Viền cam như thiết kế */
-            padding: 20px;
-            border-radius: 5px;
+            border: 1px solid #f7941d; /* Khung viền màu cam bao quanh như trong hình */
+            padding: 25px 30px;
+            border-radius: 8px;
         }
         .company-info {
-            font-size: 13px;
-            line-height: 1.6;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
         }
         .newsletter {
             display: flex;
@@ -222,29 +243,35 @@
             align-items: flex-end;
         }
         .newsletter p {
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #333;
         }
         .newsletter-form {
             display: flex;
         }
         .newsletter-form input {
-            padding: 10px 15px;
-            border: 1px solid #ccc;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
             border-radius: 5px 0 0 5px;
-            width: 250px;
+            width: 300px;
             outline: none;
+            font-size: 14px;
+        }
+        .newsletter-form input:focus {
+            border-color: #f7941d;
         }
         .newsletter-form button {
-            padding: 10px 20px;
+            padding: 12px 30px;
             background-color: #f7941d;
             color: white;
             border: none;
             border-radius: 0 5px 5px 0;
-            font-weight: bold;
+            font-weight: 800;
             cursor: pointer;
             transition: background 0.3s;
+            font-size: 14px;
         }
         .newsletter-form button:hover {
             background-color: #e6830d;
@@ -253,62 +280,66 @@
 </head>
 <body>
 
-    <footer class="footer">
-        <div class="container footer-top">
-            <div class="footer-col col-info" style="flex: 1.5;">
-                <img src="logo web.png" alt="Petopia Logo" class="logo">
-                <ul class="contact-list">
-                    <li><i class="fa-solid fa-phone"></i> <strong>1900 1234</strong></li>
-                    <li><i class="fa-solid fa-envelope"></i> support.petopia@gmail.com</li>
-                    <li><i class="fa-solid fa-location-dot"></i> 669 Đỗ Mười, phường Linh Xuân<br>TP. Thủ Đức, TP. Hồ Chí Minh</li>
-                </ul>
-                <div class="social-icons">
-                    <span style="font-weight: bold; font-size: 12px; margin-top: 6px;">KẾT NỐI VỚI CHÚNG TÔI</span>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <footer>
+        <div class="footer-top-bg">
+            <div class="container footer-top">
+                <div class="footer-col col-info" style="flex: 1.5;">
+                    <img src="logo web.png" alt="Petopia Logo" class="logo">
+                    <ul class="contact-list">
+                        <li><i class="fa-solid fa-phone"></i> <strong>1900 1234</strong></li>
+                        <li><i class="fa-solid fa-envelope"></i> support.petopia@gmail.com</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <div>669 Đỗ Mười, phường Linh Xuân<br>TP. Thủ Đức, TP. Hồ Chí Minh</div></li>
+                    </ul>
+                    <div class="social-wrap">
+                        <span>KẾT NỐI VỚI CHÚNG TÔI</span>
+                        <div class="social-icons">
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-house col-icon"></i> VỀ PETOPIA</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Thành viên</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-cart-shopping col-icon"></i> MUA SẮM</h4>
+                    <ul>
+                        <li><a href="#">Thức ăn cho chó</a></li>
+                        <li><a href="#">Thức ăn cho mèo</a></li>
+                        <li><a href="#">Đồ chơi & phụ kiện</a></li>
+                        <li><a href="#">Khuyến mãi</a></li>
+                        <li><a href="#">Thương hiệu</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col" style="flex: 1.2;">
+                    <h4><i class="fa-solid fa-headset col-icon"></i> HỖ TRỢ KHÁCH HÀNG</h4>
+                    <ul>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Hướng dẫn thanh toán</a></li>
+                        <li><a href="#">Chính sách vận chuyển</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col" style="flex: 1.2;">
+                    <h4><i class="fa-solid fa-location-dot col-icon" style="color: #f7941d;"></i> HỆ THỐNG CỬA HÀNG</h4>
+                    <p style="font-size: 15px; line-height: 1.5; margin-bottom: 10px;">Hệ thống cửa hàng Petopia trải dài khắp<br>TP. Hồ Chí Minh</p>
+                    <a href="#" class="store-btn">XEM CỬA HÀNG GẦN BẠN</a>
                 </div>
             </div>
-
-            <div class="footer-col">
-                <h4><i class="fa-solid fa-house col-icon"></i> VỀ PETOPIA</h4>
-                <ul>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Thành viên</a></li>
-                    <li><a href="#">Liên hệ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4><i class="fa-solid fa-cart-shopping col-icon"></i> MUA SẮM</h4>
-                <ul>
-                    <li><a href="#">Thức ăn cho chó</a></li>
-                    <li><a href="#">Thức ăn cho mèo</a></li>
-                    <li><a href="#">Đồ chơi & phụ kiện</a></li>
-                    <li><a href="#">Khuyến mãi</a></li>
-                    <li><a href="#">Thương hiệu</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col" style="flex: 1.2;">
-                <h4><i class="fa-solid fa-headset col-icon"></i> HỖ TRỢ KHÁCH HÀNG</h4>
-                <ul>
-                    <li><a href="#">Chính sách đổi trả</a></li>
-                    <li><a href="#">Chính sách bảo hành</a></li>
-                    <li><a href="#">Hướng dẫn mua hàng</a></li>
-                    <li><a href="#">Hướng dẫn thanh toán</a></li>
-                    <li><a href="#">Chính sách vận chuyển</a></li>
-                    <li><a href="#">Câu hỏi thường gặp</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col" style="flex: 1.5;">
-                <h4><i class="fa-solid fa-location-dot col-icon" style="color: #f7941d;"></i> HỆ THỐNG CỬA HÀNG</h4>
-                <p>Hệ thống cửa hàng Petopia trải dài khắp TP. Hồ Chí Minh</p>
-                <a href="#" class="store-btn">XEM CỬA HÀNG GẦN BẠN</a>
-                </div>
         </div>
 
         <div class="footer-features">
@@ -351,19 +382,19 @@
             </div>
         </div>
 
-        <div class="footer-partners">
-            <div class="container" style="display: flex; justify-content: space-between; width: 100%;">
+        <div class="footer-bottom-bg">
+            <div class="container footer-partners">
                 <div class="partner-group">
                     <h4>PHƯƠNG THỨC THANH TOÁN</h4>
                     <div class="partner-logos">
                         <img src="visa.png" alt="Visa">
                         <img src="mômi.png" alt="MoMo">
-                        <img src="QRR.png" alt="VNPay QR">
+                        <img src="QRR.png" alt="VNPay">
                         <img src="bank.png" alt="Bank Transfer">
                         <img src="COD.png" alt="COD">
                     </div>
                 </div>
-                <div class="partner-group">
+                <div class="partner-group" style="padding-left: 30px;">
                     <h4>ĐƠN VỊ VẬN CHUYỂN</h4>
                     <div class="partner-logos">
                         <img src="https://theme.hstatic.net/200000472237/1001083717/14/logo_ghn.png" alt="GHN">
@@ -372,10 +403,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="footer-bottom">
-            <div class="container">
+            <div class="container footer-bottom">
                 <div class="bottom-wrapper">
                     <div class="company-info">
                         <strong>@ Công Ty Cổ Phần TM & DV Petopia. MST: (028) 372 44 555.</strong><br>
