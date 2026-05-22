@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petopia Footer Full Width</title>
+    <title>Petopia Footer Full Width - Chữ Lớn</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -15,7 +15,6 @@
             font-family: 'Nunito', sans-serif;
         }
         body {
-            /* Loại bỏ khoảng trắng mặc định của trình duyệt để full màn hình */
             margin: 0;
             padding: 0;
             width: 100%;
@@ -33,17 +32,17 @@
             color: #f7941d;
         }
 
-        /* CONTAINER (Khung chứa nội dung canh giữa) */
+        /* CONTAINER */
         .container {
-            max-width: 1440px; /* Tăng độ rộng tối đa */
-            width: 95%; /* Trải rộng ra 95% màn hình */
+            max-width: 1440px;
+            width: 95%;
             margin: 0 auto;
         }
 
-        /* --- PHẦN 1: FOOTER TOP (Nền màu be) --- */
+        /* --- PHẦN 1: FOOTER TOP --- */
         .footer-top-bg {
-            background-color: #fdfaf6; /* Màu nền be nhạt */
-            width: 100%; /* Đảm bảo background full màn hình */
+            background-color: #fdfaf6;
+            width: 100%;
             border-top: 1px solid #eee;
         }
         .footer-top {
@@ -57,7 +56,7 @@
         }
         .footer-col h4 {
             color: #333;
-            font-size: 16px;
+            font-size: 18px; /* Tăng từ 16px lên 18px */
             margin-bottom: 25px;
             text-transform: uppercase;
             font-weight: 800;
@@ -67,16 +66,16 @@
         }
         .col-icon {
             color: #4CAF50;
-            font-size: 20px;
+            font-size: 22px; /* Tăng icon */
         }
         .footer-col ul li {
             margin-bottom: 15px;
-            font-size: 15px;
+            font-size: 17px; /* Tăng từ 15px lên 17px */
         }
 
         /* Cột thông tin liên hệ */
         .col-info .logo {
-            max-width: 180px;
+            max-width: 200px; /* Tăng nhẹ logo cho cân đối */
             margin-bottom: 25px;
             display: block;
         }
@@ -86,11 +85,11 @@
             gap: 15px;
             margin-bottom: 15px;
             color: #333;
-            font-size: 15px;
-            line-height: 1.5;
+            font-size: 17px; /* Tăng từ 15px lên 17px */
+            line-height: 1.6;
         }
         .contact-list i {
-            margin-top: 3px;
+            margin-top: 4px;
             color: #333;
         }
         .social-wrap {
@@ -100,16 +99,16 @@
             margin-top: 25px;
         }
         .social-wrap span {
-            font-size: 12px;
+            font-size: 14px; /* Tăng từ 12px lên 14px */
             font-weight: bold;
-            width: 70px;
+            width: 80px;
         }
         .social-icons {
             display: flex;
             gap: 15px;
         }
         .social-icons a {
-            font-size: 24px;
+            font-size: 26px; /* Tăng icon mạng xã hội */
         }
         .social-icons .fa-facebook { color: #1877F2; }
         .social-icons .fa-instagram { color: #E4405F; }
@@ -125,18 +124,18 @@
             color: #4CAF50;
             border-radius: 25px;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 16px; /* Tăng từ 14px lên 16px */
         }
         .store-btn:hover {
             background-color: #4CAF50;
             color: white;
         }
 
-        /* --- PHẦN 2: FOOTER FEATURES (Nền màu xanh lá nhạt) --- */
+        /* --- PHẦN 2: FOOTER FEATURES --- */
         .footer-features {
             background-color: #eef7eb; 
             width: 100%;
-            padding: 25px 0;
+            padding: 30px 0;
             border-top: 1px solid #d5ecd0;
             border-bottom: 1px solid #d5ecd0;
         }
@@ -153,43 +152,41 @@
             padding-right: 15px;
         }
         .feature-icon {
-            width: 45px;
-            height: 45px;
-            background-color: #f7941d; /* Cam mặc định */
+            width: 50px; /* Tăng icon to hơn chút */
+            height: 50px;
+            background-color: #f7941d; 
             color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 20px;
+            font-size: 22px;
             flex-shrink: 0;
         }
-        /* Chỉnh màu icon theo đúng hình mẫu của bạn */
         .feature-item:nth-child(1) .feature-icon,
         .feature-item:nth-child(3) .feature-icon,
         .feature-item:nth-child(5) .feature-icon {
-            background-color: #4CAF50; /* Xanh lá */
+            background-color: #4CAF50; 
         }
         .feature-text h5 {
-            font-size: 14px;
+            font-size: 16px; /* Tăng từ 14px lên 16px */
             font-weight: 800;
             color: #333;
             margin-bottom: 5px;
             text-transform: uppercase;
         }
         .feature-text p {
-            font-size: 13px;
+            font-size: 15px; /* Tăng từ 13px lên 15px */
             color: #666;
             line-height: 1.4;
         }
 
-        /* --- PHẦN 3: FOOTER PARTNERS & BOTTOM (Nền trắng) --- */
+        /* --- PHẦN 3: FOOTER PARTNERS & BOTTOM --- */
         .footer-bottom-bg {
             background-color: #ffffff;
             width: 100%;
         }
         
-        /* Phương thức thanh toán & Vận chuyển */
         .footer-partners {
             padding: 40px 0 20px 0;
             display: flex;
@@ -199,7 +196,7 @@
             width: 48%;
         }
         .partner-group h4 {
-            font-size: 15px;
+            font-size: 17px; /* Tăng từ 15px lên 17px */
             font-weight: 800;
             margin-bottom: 20px;
             color: #555;
@@ -212,7 +209,7 @@
             flex-wrap: wrap;
         }
         .partner-logos img {
-            height: 40px;
+            height: 45px; /* Tăng chiều cao logo đối tác */
             object-fit: contain;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -228,12 +225,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid #f7941d; /* Khung viền màu cam bao quanh như trong hình */
+            border: 1px solid #f7941d;
             padding: 25px 30px;
             border-radius: 8px;
         }
         .company-info {
-            font-size: 14px;
+            font-size: 16px; /* Tăng từ 14px lên 16px */
             color: #333;
             line-height: 1.8;
         }
@@ -245,25 +242,25 @@
         .newsletter p {
             font-weight: 800;
             margin-bottom: 12px;
-            font-size: 15px;
+            font-size: 17px; /* Tăng từ 15px lên 17px */
             color: #333;
         }
         .newsletter-form {
             display: flex;
         }
         .newsletter-form input {
-            padding: 12px 20px;
+            padding: 14px 20px;
             border: 1px solid #ddd;
             border-radius: 5px 0 0 5px;
-            width: 300px;
+            width: 320px;
             outline: none;
-            font-size: 14px;
+            font-size: 16px; /* Tăng chữ trong ô nhập liệu */
         }
         .newsletter-form input:focus {
             border-color: #f7941d;
         }
         .newsletter-form button {
-            padding: 12px 30px;
+            padding: 14px 30px;
             background-color: #f7941d;
             color: white;
             border: none;
@@ -271,7 +268,7 @@
             font-weight: 800;
             cursor: pointer;
             transition: background 0.3s;
-            font-size: 14px;
+            font-size: 16px; /* Tăng chữ nút đăng ký */
         }
         .newsletter-form button:hover {
             background-color: #e6830d;
@@ -336,7 +333,7 @@
 
                 <div class="footer-col" style="flex: 1.2;">
                     <h4><i class="fa-solid fa-location-dot col-icon" style="color: #f7941d;"></i> HỆ THỐNG CỬA HÀNG</h4>
-                    <p style="font-size: 15px; line-height: 1.5; margin-bottom: 10px;">Hệ thống cửa hàng Petopia trải dài khắp<br>TP. Hồ Chí Minh</p>
+                    <p style="font-size: 17px; line-height: 1.6; margin-bottom: 15px;">Hệ thống cửa hàng Petopia trải dài khắp<br>TP. Hồ Chí Minh</p>
                     <a href="#" class="store-btn">XEM CỬA HÀNG GẦN BẠN</a>
                 </div>
             </div>
