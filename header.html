@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petopia Header</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #ffffff;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 10px 5%;
+        }
+
+        /* TẦNG 1: TOP HEADER */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* Khối bên trái: Logo & Thanh tìm kiếm */
+        .left-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .logo img {
+            height: 120px; /* Điều chỉnh chiều cao logo cho vừa vặn */
+            display: block;
+        }
+        
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 25px;
+            background-color: #fafafa;
+            outline: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .search-container input:focus {
+            border-color: #f37021;
+            background-color: #fff;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        /* Khối bên phải: Icons & Button */
+        .right-box {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .action-item i {
+            font-size: 20px;
+            color: #444;
+        }
+
+        .action-item:hover {
+            color: #f37021;
+        }
+        .action-item:hover i {
+            color: #f37021;
+        }
+
+        .btn-profile {
+            background-color: #23c45e; /* Màu xanh lá đặc trưng Petopia */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-profile:hover {
+            background-color: #1b9e4b;
+        }
+
+        /* TẦNG 2: MAIN NAVIGATION */
+        .main-nav {
+            padding-top: 12px;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #555;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .menu a:hover, .menu a.active {
+            color: #f37021; /* Màu cam khi hover hoặc trang chủ đang kích hoạt */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-header">
+            
+            <div class="left-box">
+                <div class="logo">
+                    <a href="#">
+                        <img src="bglogo.png" alt="Petopia Logo">
+                        </a>
+                </div>
+
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+
+            <div class="right-box">
+                <a href="#" class="action-item">
+                    <i class="fa-regular fa-circle-question"></i>
+                    <span>Trang chủ</span>
+                </a>
+
+                <a href="#" class="action-item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Trang chủ</span>
+                </a>
+
+                <a href="#" class="action-item">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span>Giỏ hàng</span>
+                </a>
+
+                <a href="#" class="btn-profile">Hồ sơ thú cưng</a>
+            </div>
+
+        </div>
+
+        <nav class="main-nav">
+            <ul class="menu">
+                <li><a href="#" class="active">Trang chủ</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Grooming</a></li>
+                <li><a href="#">Pet Hotel</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+</body>
+</html>
