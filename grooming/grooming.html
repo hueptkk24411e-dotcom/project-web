@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đặt lịch Grooming – Petopia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/project-web/css/trangchu.css"/>
+  <link rel="stylesheet" href="/project-web/css/grooming.css"/>
+</head>
+<body>
+
+  <!-- ===== TOPBAR (shared with petopia.html) ===== -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a href="/project-web/trang chủ/trangchu.html" class="logo">
+        <div class="logo__icon">🐾</div>
+        <div class="logo__text">
+          <span class="logo__name">Petopia</span>
+          <span class="logo__sub">Pet Care Platform</span>
+        </div>
+      </a>
+      <div class="search-bar">
+        <span>🔍</span>
+        <input type="text" placeholder="Search"/>
+      </div>
+      <nav class="topbar__actions">
+        <a href="#" class="action-item"><span>❓</span><small>Hỗ trợ</small></a>
+        <a href="#" class="action-item"><span>👤</span><small>Tài khoản</small></a>
+        <a href="/project-web/trang chủ/trangchu.html" class="action-item"><span>🛒</span><small>Giỏ hàng</small></a>
+        <a href="#" class="btn-profile">Hồ sơ thú cưng</a>
+      </nav>
+    </div>
+    <nav class="mainnav">
+      <div class="container mainnav__inner">
+        <a href="/project-web/trang chủ/trangchu.html">Trang chủ</a>
+        <a href="/project-web/trang chủ/trangchu.html#shop">Shop</a>
+        <a href="/project-web/grooming/grooming.html" class="nav-active">Grooming</a>
+        <a href="#">Pet Hotel</a>
+        <a href="#">Blog</a>
+        <a href="#">Liên hệ</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== BREADCRUMB / STEPS ===== -->
+  <div class="gr-steps-bar">
+    <div class="container gr-steps-bar__inner">
+      <div class="gr-step gr-step--done">
+        <span class="gr-step__num">1</span>
+        <span class="gr-step__label">Chọn dịch vụ</span>
+      </div>
+      <div class="gr-step-line gr-step-line--done"></div>
+      <div class="gr-step gr-step--active">
+        <span class="gr-step__num">2</span>
+        <span class="gr-step__label">Chọn ngày &amp; giờ</span>
+      </div>
+      <div class="gr-step-line"></div>
+      <div class="gr-step">
+        <span class="gr-step__num">3</span>
+        <span class="gr-step__label">Xác nhận</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN BOOKING LAYOUT ===== -->
+  <main class="gr-main">
+    <div class="container gr-layout">
+
+      <!-- LEFT COLUMN -->
+      <div class="gr-left">
+
+        <!-- Calendar -->
+        <section class="gr-card">
+          <div class="gr-card__head">
+            <h3>Chọn ngày hẹn</h3>
+            <div class="cal-nav">
+              <button class="cal-nav__btn" id="cal-prev">&#8249;</button>
+              <button class="cal-nav__btn" id="cal-next">&#8250;</button>
+            </div>
+          </div>
+
+          <div class="cal-month-label" id="cal-month-label">Tháng 7.2026</div>
+
+          <div class="cal-grid">
+            <div class="cal-dow">T2</div>
+            <div class="cal-dow">T3</div>
+            <div class="cal-dow">T4</div>
+            <div class="cal-dow">T5</div>
+            <div class="cal-dow">T6</div>
+            <div class="cal-dow">T7</div>
+            <div class="cal-dow">CN</div>
+            <!-- Days injected by JS -->
+          </div>
+        </section>
+
+        <!-- Time slots -->
+        <section class="gr-card" id="time-section">
+          <div class="gr-card__head">
+            <h3>Chọn khung giờ</h3>
+          </div>
+          <div class="time-grid" id="time-grid">
+            <!-- Slots injected by JS -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="gr-right">
+
+        <!-- Service selector -->
+        <section class="gr-card">
+          <div class="gr-card__head"><h3>Chọn loại dịch vụ</h3></div>
+
+          <div class="svc-list" id="svc-list">
+
+            <label class="svc-option" data-price="450000" data-duration="120">
+              <input type="checkbox" name="svc" value="cat_tia"/>
+              <span class="svc-option__icon" style="background:#FFF3E8">✂️</span>
+              <span class="svc-option__name">Cắt tỉa toàn diện</span>
+              <span class="svc-option__price">450k</span>
+            </label>
+
+            <label class="svc-option" data-price="200000" data-duration="60">
+              <input type="checkbox" name="svc" value="tam_massage"/>
+              <span class="svc-option__icon" style="background:#EDFFF4">🛁</span>
+              <span class="svc-option__name">Tắm &amp; Massage</span>
+              <span class="svc-option__price">200k</span>
+            </label>
+
+            <label class="svc-option" data-price="150000" data-duration="30">
+              <input type="checkbox" name="svc" value="cat_mong"/>
+              <span class="svc-option__icon" style="background:#F5F0FF">💅</span>
+              <span class="svc-option__name">Cắt móng &amp; vệ sinh tai</span>
+              <span class="svc-option__price">150k</span>
+            </label>
+
+            <label class="svc-option" data-price="300000" data-duration="90">
+              <input type="checkbox" name="svc" value="spa"/>
+              <span class="svc-option__icon" style="background:#FEF9C3">🌿</span>
+              <span class="svc-option__name">Spa thảo dược</span>
+              <span class="svc-option__price">300k</span>
+            </label>
+
+          </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="gr-card gr-summary">
+          <div class="gr-summary__row">
+            <span class="gr-summary__label">Ngày hẹn:</span>
+            <span class="gr-summary__val" id="sum-date">--/--/----</span>
+          </div>
+          <div class="gr-summary__row">
+            <span class="gr-summary__label">Giờ hẹn:</span>
+            <span class="gr-summary__val" id="sum-time">--:-- --</span>
+          </div>
+          <div class="gr-summary__row">
+            <span class="gr-summary__label">Thời lượng:</span>
+            <span class="gr-summary__val" id="sum-duration">120 phút</span>
+          </div>
+          <div class="gr-summary__row">
+            <span class="gr-summary__label">Dịch vụ:</span>
+            <span class="gr-summary__val gr-summary__svc-names" id="sum-svcs">Chưa chọn</span>
+          </div>
+          <div class="gr-summary__divider"></div>
+          <div class="gr-summary__row gr-summary__row--total">
+            <span>Tổng cộng:</span>
+            <span class="gr-total-price" id="sum-total">0đ</span>
+          </div>
+
+          <button class="btn-confirm" id="btn-confirm" disabled>Xác nhận đặt lịch</button>
+          <p class="gr-summary__note">Miễn phí hủy lịch trước 24h</p>
+
+          <!-- Loyalty banner -->
+          <div class="loyalty-banner">
+            <span class="loyalty-banner__icon">👑</span>
+            <div>
+              <strong>Ưu đãi thành viên</strong>
+              <p>Giảm thêm 5% cho đơn hàng đầu tiên qua app</p>
+            </div>
+          </div>
+        </section>
+
+      </aside>
+    </div>
+  </main>
+
+  <!-- ===== CONFIRM MODAL ===== -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <div class="modal__icon">🎉</div>
+      <h2 class="modal__title">Đặt lịch thành công!</h2>
+      <p class="modal__desc">Chúng tôi sẽ xác nhận lịch hẹn của bạn qua email và SMS trong vòng 30 phút.</p>
+      <div class="modal__info" id="modal-info"></div>
+      <div class="modal__actions">
+        <button class="modal__btn modal__btn--primary" id="modal-close">Về trang chủ</button>
+        <button class="modal__btn modal__btn--ghost" id="modal-new">Đặt lịch mới</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="gr-toast"></div>
+
+  <script src="/project-web/js/grooming.js"></script>
+</body>
+</html>
