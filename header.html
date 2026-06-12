@@ -1,47 +1,26 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Petopia</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<link rel="stylesheet" href="css/hotel.css">
-<script>
-
-function showPage(page){
-
-    document.getElementById("home-page").style.display = "none";
-    document.getElementById("hotel-page").style.display = "none";
-
-    if(page === "home"){
-        document.getElementById("home-page").style.display = "block";
-    }
-
-    if(page === "hotel"){
-        document.getElementById("hotel-page").style.display = "block";
-    }
-}
-
-
-</script>
-
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/chinhsach.css">
+<script src="js/trangchu.js"></script>
+<script src="js/chinhsach.js"></script>
 </head>
-
 <body>
-
 <header>
 
     <div class="top-header">
 
         <div class="left-box">
 
-            <div class="logo">
+            <div class="header-logo">
                 <img src="images/bglogo.png" alt="">
             </div>
 
-            <div class="search-container">
+            <div class="header-search">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Search">
             </div>
@@ -50,22 +29,22 @@ function showPage(page){
 
         <div class="right-box">
 
-            <a href="#" class="action-item">
+            <a href="#" class="header-action-item">
                 <i class="fa-regular fa-circle-question"></i>
                 <span>Hỗ trợ</span>
             </a>
 
-            <a href="#" class="action-item">
+            <a href="#" class="header-action-item">
                 <i class="fa-regular fa-user"></i>
                 <span>Đăng nhập</span>
             </a>
 
-            <a href="#" class="action-item">
+            <a href="#" class="header-action-item">
                 <i class="fa-solid fa-basket-shopping"></i>
                 <span>Giỏ hàng</span>
             </a>
 
-            <a href="#" class="btn-profile">
+            <a href="#" class="header-btn-profile">
                 Hồ sơ thú cưng
             </a>
 
@@ -83,13 +62,13 @@ function showPage(page){
             </li>
 
             <li>
-                <a href="#">
+                <a href="#" onclick="showPage('shop')">
                     Shop
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="#"  onclick="showPage('grooming')" >
                     Grooming
                 </a>
             </li>
@@ -101,13 +80,13 @@ function showPage(page){
             </li>
 
             <li>
-                <a href="#">
+                <a href="#" onclick="showPage('blog')">
                     Blog
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="#" onclick="showPage('contact')" >
                     Liên hệ
                 </a>
             </li>
@@ -115,11 +94,10 @@ function showPage(page){
         </ul>
 
     </nav>
-
 </header>
 
 <!-- HOME -->
-
+ 
 <section id="home-page" class="home-page">
 
     <h1>Welcome To Petopia</h1>
@@ -129,8 +107,449 @@ function showPage(page){
     </p>
 
 </section>
+<!-- shop -->
+ <section id="shop-page" style="display:none;">
 
 
+ </section>
+ <!-- grooming-->
+ <section id="grooming-page" style="display:none;">
+    <div class="container">
+   
+   <div class="hero">
+        <div class="hero-content">
+            <h1><span>Professional</span> Dịch vụ Grooming đặc biệt</h1>
+            <p>Giữ cho thú cưng của bạn luôn sạch sẽ, khỏe mạnh và vui vẻ với sự chăm sóc tận tâm của chúng tôi</p>
+
+            <div class="hero-buttons">
+                <a class="btn btn-orange" href="#booking-section">📅 Đặt lịch hẹn</a>
+                <a class="btn btn-white" href="#services-section">Xem Dịch vụ →</a>
+            </div>
+            
+            <div class="hero-features">
+                <div class="feature-item"> Kỹ thuật viên có kinh nghiệm</div>
+                <div class="feature-item"> Sản phẩm cao cấp</div>
+                <div class="feature-item">Thiết bị an toàn</div>
+                <div class="feature-item"> Môi trường thân thiện với thú cưng</div>
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="section-title">🐾 Dịch vụ Grooming 🐾</h2>
+    <div class="services-grid" id="services-section">
+        <div class="service-card">
+            <div class="service-img">
+                <img src="https://static.wixstatic.com/media/41bb54_a1498b39e5904f7eaddf9eb102cf18c7~mv2.jpeg/v1/fill/w_4096,h_2730,al_c,q_90,enc_auto/41bb54_a1498b39e5904f7eaddf9eb102cf18c7~mv2.jpeg" alt="Basic Grooming" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"> 
+            </div>
+            <div class="service-info">
+                <h3>Grooming Cơ bản</h3>
+                <ul>
+                    <li>Tắm</li>
+                    <li>Styling</li>
+                    <li>Cắt móng</li>
+                    <li>Điều trị tai</li>
+                </ul>
+                <div class="service-price">Từ 200,000 VND</div>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-img">
+                <img src="https://thumbs.dreamstime.com/b/toy-poodle-dog-getting-groomed-pet-salon-neat-stylish-haircut-showing-its-adorable-face-fluffy-fur-clean-bright-320989222.jpg?w=768" alt="Full Grooming" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+            </div>
+            <div class="service-info">
+                <h3>Grooming trọn gói</h3>
+                <ul>
+                    <li>Tắm</li>
+                    <li>Cắt tóc</li>
+                    <li>Styling</li>
+                    <li>Cắt móng</li>
+                    <li>Điều trị tai</li>
+                </ul>
+                <div class="service-price">Từ 350,000 VND</div>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-img">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.PQyFtbDRolm4ykxdn8CcUgHaEJ?pid=Api&h=220&P=0" alt="Spa Package" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+            </div>
+            <div class="service-info">
+                <h3>Spa Package</h3>
+                <ul>
+                    <li>Tắm</li>
+                    <li>Massage</li>
+                    <li>Chăm sóc da</li>
+                    <li>Thuốc gội cao cấp</li>
+                    <li>Khử mùi</li>
+                </ul>
+                <div class="service-price">Từ 450,000 VND</div>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-img">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.lemWIlLmS2GV2vJwBC6AiQHaEK?pid=Api&h=220&P=0&w=300" alt="Nail Care" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+            </div>
+            <div class="service-info">
+                <h3>Care móng</h3>
+                <ul>
+                    <li>Cắt móng</li>
+                    <li>Điều trị móng</li>
+                    <li>Mài móng</li>
+                </ul>
+                <div class="service-price">Từ 120,000 VND</div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">🐾 Các kiểu Grooming 🐾</h2>
+    <div class="styles-grid">
+        <div class="style-card" data-style="Teddy Cut" role="button" tabindex="0" aria-label="Select Teddy Cut style">
+            <h4>Teddy Cut</h4>
+            <div class="style-images">
+                <div class="img-box"><span class="img-label">Trước</span></div>
+                <div class="arrow-icon">▶</div>
+                <div class="img-box"><span class="img-label">Sau</span></div>
+            </div>
+            <div class="style-price">+50,000 VND</div>
+        </div>
+        <div class="style-card" data-style="Lion Cut" role="button" tabindex="0" aria-label="Select Lion Cut style">
+            <h4>Lion Cut</h4>
+            <div class="style-images">
+                <div class="img-box"><span class="img-label">Trước</span></div>
+                <div class="arrow-icon">▶</div>
+                <div class="img-box"><span class="img-label">Sau</span></div>
+            </div>
+            <div class="style-price">+60,000 VND</div>
+        </div>
+        <div class="style-card" data-style="Korean Style" role="button" tabindex="0" aria-label="Select Korean Style style">
+            <h4>Korean Style</h4>
+            <div class="style-images">
+                <div class="img-box"><span class="img-label">Trước</span></div>
+                <div class="arrow-icon">▶</div>
+                <div class="img-box"><span class="img-label">Sau</span></div>
+            </div>
+            <div class="style-price">+70,000 VND</div>
+        </div>
+        <div class="style-card" data-style="Summer Cut" role="button" tabindex="0" aria-label="Select Summer Cut style">
+            <h4>Summer Cut</h4>
+            <div class="style-images">
+                <div class="img-box"><span class="img-label">Trước</span></div>
+                <div class="arrow-icon">▶</div>
+                <div class="img-box"><span class="img-label">Sau</span></div>
+            </div>
+            <div class="style-price">+40,000 VND</div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="confirmation-modal" id="confirmationModal">
+        <div class="confirmation-modal__overlay"></div>
+        <div class="confirmation-modal__content">
+            <div class="confirmation-modal__header">
+                <h3>Xác nhận đặt lịch</h3>
+            </div>
+            <div class="confirmation-modal__body">
+                <p>Bạn đã chắc chắn muốn đặt lịch với những thông tin trên chưa?</p>
+            </div>
+            <div class="confirmation-modal__footer">
+                <button class="btn-cancel" id="btnCancel">Quay lại</button>
+                <button class="btn-confirm" id="btnConfirmSubmit">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-modal__overlay"></div>
+        <div class="success-modal__content">
+            <div class="success-modal__icon">✓</div>
+            <h3 class="success-modal__title">Đơn hàng đã được xác nhận</h3>
+            <p class="success-modal__message">Chúng tôi sẽ liên hệ với bạn trong vòng 30 phút để xác nhận lịch hẹn.</p>
+            <button class="btn-close-success" id="btnCloseSuccess">Về trang chủ</button>
+        </div>
+    </div>
+
+    <div class="booking-section" id="booking-section">
+        <h2>📅 Đặt lịch chăm sóc thú cưng</h2>
+        <form class="booking-form" id="bookingFormElement">
+            <div class="form-group">
+                <label for="petName">Tên thú cưng</label>
+                <input id="petName" type="text" placeholder="Ví dụ: Miu Miu" required>
+            </div>
+            <div class="form-group">
+                <label for="ownerName">Tên chủ nuôi</label>
+                <input id="ownerName" type="text" placeholder="Tên chủ nuôi" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input id="phone" type="tel" placeholder="0123 456 789" required>
+            </div>
+            <div class="form-group">
+                <label for="petType">Loại thú cưng</label>
+                <select id="petType">
+    <option value="">Select Pet Type</option>
+    <option value="dog">Chó</option>
+    <option value="cat">Cat</option>
+</select>
+            </div>
+            <div class="form-group">
+                <label for="breed">Giống</label>
+                <select id="breed" required>
+                    <option value="">Chọn giống</option>
+                    <option>Poodle</option>
+                    <option>Corgi</option>
+                    <option>Golden Retriever</option>
+                    <option>British Shorthair</option>
+                    <option>Persian</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="weight">Cân nặng (kg)</label>
+                <select id="weight" required>
+                    <option value="">Chọn cân nặng</option>
+                    <option value="0">1 - 5 kg</option>
+                    <option value="0">5 - 10 kg</option>
+                    <option value="50000">10 - 20 kg</option>
+                    <option value="50000">20+ kg</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="service">Dịch vụ</label>
+                <select id="service" required>
+                    <option value="">Chọn dịch vụ</option>
+                    <option value="200000">Grooming cơ bản</option>
+                    <option value="350000">Grooming trọn gói</option>
+                    <option value="120000">Cắt móng</option>
+                    <option value="450000">Bồn tắm spa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="style">Kiểu tóc</label>
+                <select id="style" required>
+                    <option value="">Chọn kiểu tóc</option>
+                    <option value="50000">Teddy Cut</option>
+                    <option value="60000">Lion Cut</option>
+                    <option value="70000">Korean Style</option>
+                    <option value="40000">Summer Cut</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bookingDate">Ngày đặt lịch</label>
+                <input id="bookingDate" type="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Giờ hẹn</label>
+                <select id="time" required>
+                    <option value="">Chọn giờ</option>
+                    <option>08:00 AM</option>
+                    <option>09:00 AM</option>
+                    <option>10:00 AM</option>
+                    <option>13:00 PM</option>
+                    <option>14:00 PM</option>
+                    <option>15:00 PM</option>
+                    <option>17:00 PM</option>
+                </select>
+            </div>
+            <div class="form-group add-ons-section">
+                <label>Dịch vụ bổ sung (tùy chọn)</label>
+                <div class="addons-list">
+                    <label class="addon-item">
+                        <input type="checkbox" data-addon="nail-polish" data-price="25000">
+                        <span class="addon-name">Sơn móng</span>
+                        <span class="addon-price">+25,000 VND</span>
+                    </label>
+                    <label class="addon-item">
+                        <input type="checkbox" data-addon="ear-clean" data-price="30000">
+                        <span class="addon-name">Làm sạch tai sâu</span>
+                        <span class="addon-price">+30,000 VND</span>
+                    </label>
+                    <label class="addon-item">
+                        <input type="checkbox" data-addon="flea-treat" data-price="80000">
+                        <span class="addon-name">Điều trị rận</span>
+                        <span class="addon-price">+80,000 VND</span>
+                    </label>
+                    <label class="addon-item">
+                        <input type="checkbox" data-addon="photo" data-price="50000">
+                        <span class="addon-name">📸 Photo Session</span>
+                        <span class="addon-price">+50,000 VND</span>
+                    </label>
+                </div>
+            </div>
+            <div class="special-notes">
+                <div class="form-group">
+                    <label for="notes">Ghi chú thêm (tùy chọn)</label>
+                    <textarea id="notes" rows="4" placeholder="Ghi chú cho Petopia"></textarea>
+                </div>
+                <button type="submit" class="btn-submit-booking">🐾 Xác nhận đặt lịch</button>
+            </div>
+        </form>
+
+        <div class="booking-summary" aria-live="polite">
+            <div class="booking-summary__header">📋 Tóm tắt đặt lịch</div>
+            <div class="booking-summary__content">
+                <div class="summary-item">
+                    <span class="label">Thú cưng:</span>
+                    <span id="summaryPet" class="value">-</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Dịch vụ:</span>
+                    <span id="summaryService" class="value">-</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Kiểu tóc:</span>
+                    <span id="summaryStyle" class="value">-</span>
+                </div>
+                <div id="summaryAddons" class="summary-item" style="display:none;">
+                    <span class="label">Thêm dịch vụ:</span>
+                    <span id="summaryAddonsText" class="value">-</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Ngày & Giờ:</span>
+                    <span id="summaryDateTime" class="value">-</span>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-price">
+                    <span class="label">💰 Tổng tiền:</span>
+                    <span id="summaryTotal" class="total-value">0 VND</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 class="section-title">Quy trình chăm sóc</h2>
+    <div class="process-container">
+        <div class="process-line"></div>
+        <div class="process-step">
+            <div class="process-icon">📋</div>
+            <h4>Check-in</h4>
+            <p>Chúng tôi chào đón thú cưng của bạn</p>
+        </div>
+        <div class="process-step">
+            <div class="process-icon">❤️</div>
+            <h4>Health Check</h4>
+            <p>Kiểm tra tình trạng sức khỏe của thú cưng</p>
+        </div>
+        <div class="process-step">
+            <div class="process-icon">🛁</div>
+            <h4>Bath & Cleaning</h4>
+            <p>Làm sạch sâu với sản phẩm cao cấp</p>
+        </div>
+        <div class="process-step">
+            <div class="process-icon">✂️</div>
+            <h4>Hair Styling</h4>
+            <p>Cắt, tỉa và tạo kiểu theo yêu cầu</p>
+        </div>
+        <div class="process-step">
+            <div class="process-icon">🛡️</div>
+            <h4>Quality Check</h4>
+            <p>Đảm bảo kết quả hoàn hảo</p>
+        </div>
+        <div class="process-step">
+            <div class="process-icon">🏠</div>
+            <h4>Đón thú cưng</h4>
+            <p>Thú cưng được đón về an toàn và hạnh phúc</p>
+        </div>
+    </div>
+
+    <div class="bottom-grid">
+        <div class="panel-box">
+            <div class="panel-header">
+                <span>Chủ thú cưng nói gì</span>
+                <span style="font-size: 12px; font-weight: normal; cursor: pointer;">Xem tất cả ></span>
+            </div>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Thú cưng của tôi trông rất dễ thương sau khi được chăm sóc! Nhân viên rất nhẹ nhàng và chuyên nghiệp."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-img"></div>
+                        <div class="reviewer-info">
+                            <h5>Lan Anh</h5>
+                            <p>with Poodle - Chip</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Dịch vụ tuyệt vời! Mèo của tôi thường rất khó tính nhưng họ xử lý nó rất tốt."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-img"></div>
+                        <div class="reviewer-info">
+                            <h5>Thanh Mai</h5>
+                            <p>with Cat - Miu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Thú cưng của tôi trông rất dễ thương sau khi được chăm sóc! Nhân viên rất nhẹ nhàng và chuyên nghiệp."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-img"></div>
+                        <div class="reviewer-info">
+                            <h5>Hoang Nam</h5>
+                            <p>with Corgi - Gấu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-box">
+            <div class="panel-header">Câu hỏi thường gặp</div>
+            <div class="faq-list">
+                <div class="grooming-faq-item" data-faq="0">
+                    <div class="grooming-faq-question">
+                        <span class="grooming-faq-text">Grooming mất bao lâu?</span>
+                        <span class="grooming-faq-arrow">▼</span>
+                    </div>
+                    <div class="grooming-faq-answer">Thời gian grooming phụ thuộc vào loại dịch vụ và kích thước của thú cưng. Thông thường, các buổi grooming mất từ 1-2 giờ.</div>
+                </div>
+                <div class="grooming-faq-item" data-faq="1">
+                    <div class="grooming-faq-question">
+                        <span class="grooming-faq-text">Tôi có thể chọn một người chăm sóc cụ thể không?</span>
+                        <span class="grooming-faq-arrow">▼</span>
+                    </div>
+                    <div class="grooming-faq-answer">Có! Bạn có thể yêu cầu nhân viên grooming ưa thích của mình khi đặt lịch. Đội ngũ chuyên nghiệp của chúng tôi sẽ đảm bảo chăm sóc tốt nhất cho thú cưng của bạn.</div>
+                </div>
+                <div class="grooming-faq-item" data-faq="2">
+                    <div class="grooming-faq-question">
+                        <span class="grooming-faq-text">Tôi nên chuẩn bị gì trước khi grooming?</span>
+                        <span class="grooming-faq-arrow">▼</span>
+                    </div>
+                    <div class="grooming-faq-answer">Hãy tắm cho thú cưng của bạn trước và cắt móng nếu có thể. Mang theo giấy tờ tiêm chủng và cho chúng tôi biết về bất kỳ tình trạng da nào hoặc dị ứng nào.</div>
+                </div>
+                <div class="grooming-faq-item" data-faq="3">
+                    <div class="grooming-faq-question">
+                        <span class="grooming-faq-text">Grooming nên thực hiện thường xuyên như thế nào?</span>
+                        <span class="grooming-faq-arrow">▼</span>
+                    </div>
+                    <div class="grooming-faq-answer">Chúng tôi khuyên bạn nên grooming cho thú cưng của mình mỗi 4-8 tuần. Loại giống và loại lông sẽ ảnh hưởng đến tần suất grooming lý tưởng - hãy tham khảo ý kiến của các chuyên gia!</div>
+                </div>
+                <div class="grooming-faq-item" data-faq="4">
+                    <div class="grooming-faq-question">
+                        <span class="grooming-faq-text">Bạn có chấp nhận đặt lịch trực tiếp không?</span>
+                        <span class="grooming-faq-arrow">▼</span>
+                    </div>
+                    <div class="grooming-faq-answer">Chúng tôi ưu tiên việc đặt lịch trước để đảm bảo chất lượng dịch vụ tốt nhất. Các khách hàng đến trực tiếp cũng được chào đón dựa trên sự sẵn có - vui lòng gọi trước để xác nhận!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-cta">
+        <div class="cta-content">
+            <div class="cta-img"></div>
+            <div class="cta-text">
+                <h3>Sẵn sàng cho một vẻ ngoài mới mẻ?</h3>
+                <p>Đặt lịch grooming ngay hôm nay và khiến thú cưng của bạn hạnh phúc!</p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+ </section>
 <!-- PET HOTEL -->
 
 <section id="hotel-page" style="display:none;">
@@ -150,18 +569,18 @@ function showPage(page){
             </button>
 
             <button class="btn-room">
-                View Room
+                <a href="#viewroom">View Room</a>
             </button>
 
         </div>
 
         <div class="banner-features">
 
-            <span>Giám sát 24/7</span>
-            <span>Phòng ở thoải mái</span>
-            <span>Cho ăn hằng ngày</span>
-            <span>Chăm sóc chuyên nghiệp</span>
-            <span>Khu vui chơi</span>
+            <span><a href="#giamsat247">Giám sát 24/7</a></span>
+            <span><a href="#phongthoaimai">Phòng ở thoải mái</a></span>
+            <span><a href="#choanhangngay">Cho ăn hằng ngày</a></span>
+            <span><a href="#chamsocchuyennghiep">Chăm sóc chuyên nghiệp</a></span>
+            <span><a href="#khuvuichoi">Khu vui chơi<</a></span>
 
         </div>
 
@@ -170,9 +589,8 @@ function showPage(page){
 </section>
 
    
-    <div class="room-section">
+    <div class="room-section" id="viewroom">
          <div class="choose-room">
-        
 
         <div class="room-header">
             
@@ -186,11 +604,11 @@ function showPage(page){
 
         <div class="room-list">
 
-            <div class="card">
+            <div class="hotel-card">
 
                 <img src="images/hotel/room1.png">
 
-                <div class="card-content">
+               <div class="hotel-card-content">
 
                     <div class="room-title">
                         <h3>🐾 Phòng Thường</h3>
@@ -210,7 +628,7 @@ function showPage(page){
 
             </div>
 
-            <div class="card">
+            <div class="hotel-card">
 
                 <img src="images/hotel/room2.png">
 
@@ -235,7 +653,7 @@ Xem chi tiết
 
             </div>
 
-            <div class="card">
+            <div class="hotel-card">
 
                 <img src="images/hotel/room3.png">
 
@@ -443,7 +861,7 @@ Xem chi tiết
 
         <h2 style="color: green ;">Tại sao nên chọn Khách sạn thú cưng Petopia?</h2>
 
-        <h3>Giám sát và chăm sóc 24/7</h3>
+        <h3 id="giamsat247" >Giám sát và chăm sóc 24/7</h3>
 
         <p>
             Tại Petopia, thú cưng được theo dõi liên tục 24 giờ mỗi ngày bởi đội ngũ
@@ -458,7 +876,7 @@ Xem chi tiết
 
     <div class="why-box">
 
-        <h3>Không gian lưu trú sạch sẽ và tiện nghi</h3>
+        <h3 id="phongthoaimai">Không gian lưu trú sạch sẽ và tiện nghi</h3>
 
         <p>
             Các phòng lưu trú được thiết kế riêng biệt, thông thoáng và vệ sinh định kỳ.
@@ -472,7 +890,7 @@ Xem chi tiết
 
     <div class="why-box">
 
-        <h3>Chế độ chăm sóc cá nhân hóa</h3>
+        <h3 id="choanhangngay">Chế độ chăm sóc cá nhân hóa</h3>
 
         <ul>
 
@@ -494,7 +912,7 @@ Xem chi tiết
 
     <div class="why-box">
 
-        <h3>Đội ngũ nhân viên chuyên nghiệp</h3>
+        <h3 id="chamsocchuyennghiep">Đội ngũ nhân viên chuyên nghiệp</h3>
 
         <p>
             Nhân viên được đào tạo bài bản về hành vi và chăm sóc thú cưng,
@@ -508,7 +926,7 @@ Xem chi tiết
 
     <div class="why-box">
 
-        <h3>Hoạt động vui chơi hằng ngày</h3>
+        <h3 id="khuvuichoi">Hoạt động vui chơi hằng ngày</h3>
 
         <p>
             Bên cạnh thời gian nghỉ ngơi, thú cưng còn được tham gia các hoạt động
@@ -526,7 +944,7 @@ Xem chi tiết
 
     <h2 class="gallery-title" style="color: green;"> THƯ VIỆN HÌNH ẢNH 🐾</h2>
 
-    <button class="btn prev" onclick="scrollGallery(-250)">❮</button>
+    <button class="gallery-btn prev" onclick="scrollGallery(-250)">❮</button>
 
     <div class="gallery-wrapper">
         <div class="gallery" id="gallery">
@@ -581,20 +999,9 @@ Xem chi tiết
         </div>
     </div>
 
-    <button class="btn next" onclick="scrollGallery(250)">❯</button>
+    <button class="gallery-btn  next" onclick="scrollGallery(250)">❯</button>
 
-</section>
-
-<script>
-function scrollGallery(value){
-    document.getElementById("gallery")
-    .scrollBy({
-        left:value,
-        behavior:"smooth"
-    });
-}
-</script>
-    
+</section> 
 
     <!-- ĐÁNH GIÁ --> 
      <h2 style="color: green;">ĐÁNH GIÁ KHÁCH HÀNG 🐾</h2>
@@ -644,7 +1051,6 @@ function scrollGallery(value){
                 "Petopia như một ngôi nhà thứ hai của bé.
                 Cảm ơn đội ngũ đã chăm sóc bé tận tình!"
             </p>
-
             <div class="customer">
                 <img src="https://i.pinimg.com/736x/d7/4b/ff/d74bffc47680592a4d739ae3a6a97381.jpg" alt="Lê Hương">
                 <div>
@@ -661,82 +1067,82 @@ function scrollGallery(value){
  <h2 style="color: orange;">CÂU HỎI THƯỜNG GẶP</h2>
     <div class="faq-section">
 
-    <div class="faq-item">
-        <button class="faq-question">
+    <div class="hotel-faq-item">
+        <button class="hotel-faq-question">
             Tôi có cần đặt phòng trước không?
             <span>▼</span>
         </button>
-        <div class="faq-answer">
+        <div class="hotel-faq-answer">
             Có. Chúng tôi khuyến khích khách hàng đặt phòng trước để đảm bảo còn chỗ và lựa chọn được loại phòng phù hợp, đặc biệt vào cuối tuần và dịp lễ.
         </div>
     </div>
 
-    <div class="faq-item">
-        <button class="faq-question">
+    <div class="hotel-faq-item">
+        <button class="hotel-faq-question">
             Thú cưng cần điều kiện gì để lưu trú?
             <span>▼</span>
         </button>
-        <div class="faq-answer">
+        <div class="hotel-faq-answer">
             Thú cưng cần có sức khỏe ổn định, được tiêm phòng đầy đủ và không mắc các bệnh truyền nhiễm để đảm bảo an toàn cho tất cả thú cưng tại Petopia.
         </div>
     </div>
 
-    <div class="faq-item">
-        <button class="faq-question">
+    <div class="hotel-faq-item">
+        <button class="hotel-faq-question">
             Giá phòng được tính như thế nào?
             <span>▼</span>
         </button>
-        <div class="faq-answer">
+        <div class="hotel-faq-answer">
             Giá phòng được tính theo loại phòng và số ngày lưu trú. Khách hàng có thể lựa chọn phòng Basic hoặc Premium tùy theo nhu cầu.
         </div>
     </div>
 
-    <div class="faq-item">
-        <button class="faq-question">
+    <div class="hotel-faq-item">
+        <button class="hotel-faq-question">
             Tôi có thể mang thức ăn riêng cho thú cưng không?
             <span>▼</span>
         </button>
-        <div class="faq-answer">
+        <div class="hotel-faq-answer">
             Có. Bạn hoàn toàn có thể mang theo thức ăn, đồ chơi hoặc vật dụng quen thuộc để thú cưng cảm thấy thoải mái hơn.
         </div>
     </div>
 
-    <div class="faq-item">
-        <button class="faq-question">
+    <div class="hotel-faq-item">
+        <button class="hotel-faq-question">
             Petopia có nhân viên chăm sóc 24/7 không?
             <span>▼</span>
         </button>
-        <div class="faq-answer">
+        <div class="hotel-faq-answer">
             Có. Đội ngũ nhân viên luôn theo dõi và chăm sóc thú cưng trong suốt thời gian lưu trú nhằm đảm bảo an toàn và sức khỏe tốt nhất.
         </div>
     </div>
 
-    <div class="faq-item">
-        <button class="faq-question">
+    <div class="hotel-faq-item">
+        <button class="hotel-faq-question">
             Tôi có nhận được hình ảnh cập nhật của thú cưng không?
             <span>▼</span>
         </button>
-        <div class="faq-answer">
+        <div class="hotel-faq-answer">
             Có. Petopia sẽ gửi hình ảnh hoặc video cập nhật định kỳ để chủ nuôi có thể theo dõi tình trạng của thú cưng.
         </div>
     </div>
 
-    <div class="faq-item">
-        <button class="faq-question">
+    <div class="hotel-faq-item">
+        <button class="hotel-faq-question">
             Nếu thú cưng bị bệnh trong thời gian lưu trú thì sao?
             <span>▼</span>
         </button>
-        <div class="faq-answer">
+        <div class="hotel-faq-answer">
             Nhân viên sẽ liên hệ ngay với chủ nuôi và áp dụng các biện pháp chăm sóc cần thiết. Trong trường hợp khẩn cấp, thú cưng sẽ được đưa đến cơ sở thú y liên kết.
         </div>
     </div>
 
-    <div class="faq-item">
-        <button class="faq-question">
+    <div class="hotel-faq-item">
+        <button class="hotel-faq-question">
             Có hỗ trợ đưa đón thú cưng tận nơi không?
             <span>▼</span>
         </button>
-        <div class="faq-answer">
+        <div class="hotel-faq-answer">
             Có. Petopia cung cấp dịch vụ đưa đón tận nơi theo yêu cầu để giúp khách hàng thuận tiện hơn khi sử dụng dịch vụ lưu trú.
         </div>
     </div>
@@ -746,15 +1152,15 @@ function scrollGallery(value){
 
        <div class="booking-container">
 
-<form class="booking-form" id="bookingForm">
+<form class="hotel-booking-form" id="bookingForm">
 
 
-    <div class="form-group">
+    <div class="hotel-form-group">
         <label>Tên thú cưng <span>*</span></label>
         <input type="text" placeholder="Nhập tên thú cưng" required>
     </div>
 
-    <div class="form-group">
+    <div class="hotel-form-group">
         <label>Loại thú cưng <span>*</span></label>
         <select required>
             <option value="">-- Chọn loại thú cưng --</option>
@@ -763,7 +1169,7 @@ function scrollGallery(value){
         </select>
     </div>
 
-    <div class="form-group">
+    <div class="hotel-form-group">
         <label>Giống loài</label>
         <select>
             <option value="">Chọn giống loài</option>
@@ -773,7 +1179,7 @@ function scrollGallery(value){
         </select>
     </div>
 
-    <div class="form-group">
+    <div class="hotel-form-group">
         <label>Loại phòng <span>*</span></label>
         <select required>
             <option value="">Chọn loại phòng</option>
@@ -783,17 +1189,17 @@ function scrollGallery(value){
         </select>
     </div>
 
-    <div class="form-group">
+    <div class="hotel-form-group">
         <label>Ngày nhận phòng <span>*</span></label>
         <input type="date" required>
     </div>
 
-    <div class="form-group">
+    <div class="hotel-form-group">
         <label>Ngày trả phòng <span>*</span></label>
         <input type="date" required>
     </div>
 
-    <div class="form-group full-width">
+    <div class="hotel-form-group full-width">
         <label>Ghi chú</label>
         <textarea rows="3" placeholder="Nhập ghi chú nếu có"></textarea>
     </div>
@@ -836,6 +1242,194 @@ function scrollGallery(value){
     </div>
 </section>
 </section>
+<section id="policy-page" style="display:none;">
+
+<div class="policy-layout">
+
+    <div class="policy-menu">
+
+        <button onclick="showPolicy('return')">Chính sách đổi trả</button>
+
+        <button onclick="showPolicy('warranty')">Chính sách bảo hành</button>
+
+        <button onclick="showPolicy('buy')">Hướng dẫn mua hàng</button>
+
+        <button onclick="showPolicy('payment')">Hướng dẫn thanh toán</button>
+
+        <button onclick="showPolicy('shipping')">Chính sách vận chuyển</button>
+
+        <button onclick="showPolicy('faq')">Câu hỏi thường gặp</button>
+
+    </div>
+
+    <div class="policy-content">
+
+        <h1 id="policy-title"></h1>
+
+        <div id="policy-detail"></div>
+
+    </div>
+
+</div>
+</section>
+
+<section id="blog-page" style="display:none;">
+    
+  <div class="blog-wrapper">
+
+    <!-- HERO BANNER -->
+    <div class="blog-hero">
+      <img class="blog-hero__img"
+        src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1400&auto=format&fit=crop&q=80"
+        alt="Chăm sóc thú cưng mùa hè"/>
+      <div class="blog-hero__overlay"></div>
+      <div class="blog-hero__content">
+        <span class="hero-badge">Nổi bật</span>
+        <h1 class="blog-hero__title">Hướng dẫn toàn diện về chăm<br/>sóc thú cưng mùa hè</h1>
+        <p class="blog-hero__desc">Mùa hè đến mang theo nhiều niềm vui nhưng cũng tiềm ẩn nhiều nguy cơ sức khỏe cho thú cưng của bạn. Khám phá những bí quyết quan trọng để giữ cho...</p>
+      </div>
+    </div>
+
+    <!-- LAYOUT 2 CỘT -->
+    <div class="blog-layout">
+
+      <!-- CỘT TRÁI: BÀI VIẾT -->
+      <div>
+
+        <!-- Section 1: Hướng dẫn chăm sóc -->
+        <div class="blog-section">
+          <div class="blog-section-header">
+            <h2><span>🩺</span> Hướng dẫn chăm sóc</h2>
+            <a href="#" class="blog-see-all">Xem tất cả</a>
+          </div>
+          <div class="articles-grid">
+
+            <article class="article-card">
+              <img class="article-card__img"
+                src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500&auto=format&fit=crop&q=80"
+                alt="Vệ sinh tai mèo"/>
+              <div class="article-card__body">
+                <span class="article-badge badge--cat">Mèo</span>
+                <h3 class="article-card__title">5 bước vệ sinh tai cho mèo<br/>an toàn tại nhà</h3>
+                <p class="article-card__desc">Vệ sinh tai định kỳ giúp ngăn ngừa nhiễm khuẩn và ve rận. Hãy làm theo hướng dẫn chi tiết này để bảo vệ tai cho mèo yêu của bạn.</p>
+                <div class="article-card__meta">
+                  <span><i class="fa-regular fa-calendar"></i> 12 Thg 5, 2024</span>
+                  <span><i class="fa-regular fa-clock"></i> 5 phút đọc</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="article-card">
+              <img class="article-card__img"
+                src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&auto=format&fit=crop&q=80"
+                alt="Lịch tiêm phòng chó"/>
+              <div class="article-card__body">
+                <span class="article-badge badge--dog">Chó</span>
+                <h3 class="article-card__title">Lịch tiêm phòng đầy đủ<br/>cho chó con</h3>
+                <p class="article-card__desc">Bảo vệ cún cưng của bạn khỏi các truyền nhiễm nguy hiểm bằng cách tuân thủ lịch tiêm phòng khoa học ngay từ khi còn nhỏ.</p>
+                <div class="article-card__meta">
+                  <span><i class="fa-regular fa-calendar"></i> 10 Thg 5, 2024</span>
+                  <span><i class="fa-regular fa-clock"></i> 7 phút đọc</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div><!-- /section 1 -->
+
+        <!-- Section 2: Tips ăn uống -->
+        <div class="blog-section">
+          <div class="blog-section-header">
+            <h2><span>🍽️</span> Tips ăn uống</h2>
+            <a href="#" class="blog-see-all">Xem tất cả</a>
+          </div>
+          <div class="articles-grid">
+
+            <article class="article-card">
+              <img class="article-card__img"
+                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=500&auto=format&fit=crop&q=80"
+                alt="Chó ăn"/>
+              <div class="article-card__body">
+                <span class="article-badge badge--nutrition">Dinh dưỡng</span>
+                <h3 class="article-card__title">Chế độ ăn đặc biệt cho<br/>chó lớn tuổi</h3>
+                <p class="article-card__desc">Khi chó già đi, nhu cầu dinh dưỡng của chúng thay đổi. Tìm hiểu cách điều chỉnh chế độ ăn phù hợp để kéo dài sức khỏe và tuổi thọ.</p>
+                <div class="article-card__meta">
+                  <span><i class="fa-regular fa-calendar"></i> 05 Thg 5, 2024</span>
+                  <span><i class="fa-regular fa-clock"></i> 6 phút đọc</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="article-card">
+              <img class="article-card__img"
+                src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=500&auto=format&fit=crop&q=80"
+                alt="Thức ăn cấm cho mèo"/>
+              <div class="article-card__body">
+                <span class="article-badge badge--warning">Cảnh báo</span>
+                <h3 class="article-card__title">10 Thực phẩm tuyệt đối<br/>không cho mèo ăn</h3>
+                <p class="article-card__desc">Nhiều loại thực phẩm an toàn với người nhưng lại vô cùng độc hại với mèo. Nhận biết và tránh xa những thực phẩm này ngay hôm nay.</p>
+                <div class="article-card__meta">
+                  <span><i class="fa-regular fa-calendar"></i> 02 Thg 5, 2024</span>
+                  <span><i class="fa-regular fa-clock"></i> 4 phút đọc</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div><!-- /section 2 -->
+
+      </div><!-- /cột trái -->
+
+      <!-- CỘT PHẢI: SIDEBAR -->
+      <aside class="blog-sidebar">
+        <div class="blog-sidebar-title">
+          <span>🔥</span> Bài viết phổ biến
+        </div>
+
+        <div class="popular-post">
+          <img class="popular-post__img"
+            src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=120&auto=format&fit=crop"
+            alt="Grooming"/>
+          <div>
+            <p class="popular-post__title">Bao lâu nên đưa chó đi grooming một lần?</p>
+            <p class="popular-post__date">20 Thg 4, 2024</p>
+          </div>
+        </div>
+
+        <div class="popular-post">
+          <img class="popular-post__img"
+            src="https://images.unsplash.com/photo-1575781995580-d49f33f41c6b?w=120&auto=format&fit=crop"
+            alt="Đệm ngủ"/>
+          <div>
+            <p class="popular-post__title">Review top 5 đệm ngủ êm ái cho thú cưng</p>
+            <p class="popular-post__date">15 Thg 4, 2024</p>
+          </div>
+        </div>
+
+        <div class="popular-post">
+          <img class="popular-post__img"
+            src="https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?w=120&auto=format&fit=crop"
+            alt="Đồ chơi"/>
+          <div>
+            <p class="popular-post__title">Cách chọn đồ chơi an toàn cho chó</p>
+            <p class="popular-post__date">10 Thg 4, 2024</p>
+          </div>
+        </div>
+      </aside>
+
+    </div><!-- /blog-layout -->
+
+  </div><!-- /blog-wrapper -->
+</section><!-- /blog-page -->
+ <section id="contact-page" style="display:none;">
+
+
+
+
+
+    
+ </section>
+</section>
     <footer>
         <div class="footer-top-bg">
             <div class="container footer-top">
@@ -844,7 +1438,7 @@ function scrollGallery(value){
                     <ul class="contact-list">
                         <li><i class="fa-solid fa-phone"></i> <strong>1900 1234</strong></li>
                         <li><i class="fa-solid fa-envelope"></i> support.petopia@gmail.com</li>
-                        <li><i class="fa-solid fa-location-dot"></i> <div>669 Đỗ Mười, phường Linh Xuân<br>TP. Thủ Đức, TP. Hồ Chí Minh</div></li>
+                        <li><i class="fa-solid fa-location-dot"></i> <div>669 Đỗ Mười, phường Linh Xuân TP. Thủ Đức, TP. Hồ Chí Minh</div></li>
                     </ul>
                     <div class="social-wrap">
                         <div>
@@ -860,7 +1454,9 @@ function scrollGallery(value){
                 </div>
 
                 <div class="footer-col">
-                    <h4><i class="fa-solid fa-house col-icon"></i> VỀ PETOPIA</h4>
+                    <h4><i class="fa-solid fa-house col-icon">
+                    
+                    </i> VỀ PETOPIA</h4>
                     <ul>
                         <li><a href="#">Giới thiệu</a></li>
                         <li><a href="#">Thành viên</a></li>
@@ -882,13 +1478,14 @@ function scrollGallery(value){
 
                 <div class="footer-col" style="flex: 1.2;">
                     <h4><i class="fa-solid fa-headset col-icon"></i> HỖ TRỢ KHÁCH HÀNG</h4>
+                    
                     <ul>
-                        <li><a href="#">Chính sách đổi trả</a></li>
-<li><a href="#">Chính sách bảo hành</a></li>
-                        <li><a href="#">Hướng dẫn mua hàng</a></li>
-                        <li><a href="#">Hướng dẫn thanh toán</a></li>
-                        <li><a href="#">Chính sách vận chuyển</a></li>
-                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#" onclick="showPage('policy');showPolicy('return')">Chính sách đổi trả</a></li>
+                        <li><a href="#" onclick="showPage('policy');showPolicy('warranty')">Chính sách bảo hành</a></li>
+                        <li><a href="#" onclick="showPage('policy');showPolicy('buy')">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#" onclick="showPage('policy');showPolicy('payment')">Hướng dẫn thanh toán</a></li>
+                        <li><a href="#" onclick="showPage('policy');showPolicy('shipping')">Chính sách vận chuyển</a></li>
+                        <li><a href="#"  onclick="showPage('policy');showPolicy('faq')">Câu hỏi thường gặp</a></li>
                     </ul>
                 </div>
 
@@ -979,17 +1576,39 @@ function scrollGallery(value){
             </div>
         </div>
     </footer>
-
-</body>
 <script>
-const faqItems = document.querySelectorAll('.faq-item');
 
-faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
+document.querySelectorAll(".hotel-faq-question").forEach(function(btn){
 
-    question.addEventListener('click', () => {
-        item.classList.toggle('active');
-    });
+    btn.onclick = function(){
+
+        let answer = this.nextElementSibling;
+
+        if(answer.style.display === "block"){
+            answer.style.display = "none";
+        }else{
+            answer.style.display = "block";
+        }
+
+    };
+
 });
+
 </script>
+<script>
+
+document.querySelectorAll(".grooming-faq-question")
+.forEach(function(btn){
+
+    btn.onclick = function(){
+
+        this.nextElementSibling.classList.toggle("show");
+
+    };
+
+});
+
+</script>
+</body>
+
 </html>
