@@ -222,8 +222,12 @@ function updateBreeds() {
         breedSelect.appendChild(option);
     });
 }
-
 function updatePrice() {
+
+    if(!serviceSelect || !styleSelect || !weightSelect){
+        return;
+    }
+
     var baseService = Number(serviceSelect.value || 0);
     var styleExtra = Number(styleSelect.value || 0);
     var weightExtra = Number(weightSelect.value || 0);
@@ -276,19 +280,7 @@ function scrollGallery(value){
     });
 }
 
-function showPage(page){
 
-    document.getElementById("home-page").style.display = "none";
-    document.getElementById("hotel-page").style.display = "none";
-
-    if(page === "home"){
-        document.getElementById("home-page").style.display = "block";
-    }
-
-    if(page === "hotel"){
-        document.getElementById("hotel-page").style.display = "block";
-    }
-}
 function showPage(page){
 
     document.getElementById("home-page").style.display = "none";
@@ -298,6 +290,515 @@ function showPage(page){
     document.getElementById("blog-page").style.display = "none";
     document.getElementById("shop-page").style.display = "none";
     document.getElementById("contact-page").style.display = "none";
-    document.getElementById(page + "-page").style.display = "block";
+    document.getElementById('about-page').style.display='none';
+    
+    document.getElementById(page + "-page").style.display = "block"
 }
-// FAQ
+function showAbout(type){
+
+    document.getElementById("intro-content").style.display = "none";
+    document.getElementById("member-content").style.display = "none";
+    document.getElementById("recruit-content").style.display = "none";
+
+    if(type === "intro"){
+        document.getElementById("intro-content").style.display = "block";
+    }
+
+    if(type === "member"){
+        document.getElementById("member-content").style.display = "block";
+    }
+
+    if(type === "recruit"){
+        document.getElementById("recruit-content").style.display = "block";
+    }
+}
+function toggleFAQ(element){
+
+    let item = element.parentElement;
+
+    item.classList.toggle("active");
+}'use strict';
+
+/* ============================================================
+   Blog.js  –  Petopia Blog Engine  v2.0
+   3 view: Home · Category · Detail
+   ============================================================ */
+
+const Blog = {
+
+  data: null,
+  _history: [],
+
+  /* ── INIT ─────────────────────────────────────────────── */
+  async init() {
+    this._showLoading(true);
+    try {
+      const res = await fetch('../json/blog.json');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      this.data = await res.json();
+      this._renderHome();
+    } catch (e) {
+      this._showError('Không thể tải dữ liệu bài viết. Vui lòng thử lại sau.');
+    }
+  },
+
+  /* ── NAV ──────────────────────────────────────────────── */
+  renderHome() { this._history = []; this._renderHome(); },
+
+  renderCategory(catId) {
+    this._history.push({ view: 'home' });
+    this._renderCategory(catId);
+  },
+
+  renderDetail(id) {
+    const cur = this._curView();
+    this._history.push({ view: cur.view, id: cur.id });
+    this._renderDetail(id);
+  },
+
+  goBack() {
+    if (!this._history.length) { this._renderHome(); return; }
+    const p = this._history.pop();
+    if      (p.view === 'home') this._renderHome();
+    else if (p.view === 'cat')  this._renderCategory(p.id);
+    else                        this._renderHome();
+  },
+
+  _curView() {
+    const d = document.getElementById('blog-detail-view');
+    const c = document.getElementById('blog-category-view');
+    if (d && d.style.display !== 'none') return { view: 'detail', id: d.dataset.id };
+    if (c && c.style.display !== 'none') return { view: 'cat',    id: c.dataset.id };
+    return { view: 'home' };
+  },
+
+  /* ── RENDER HOME ──────────────────────────────────────── */
+  _renderHome() {
+    this._showLoading(false);
+    const { featured, categories } = this.data;
+
+    const secs = Object.entries(categories)
+      .map(([id, cat]) => `
+        <div class="blog-section">
+          <div class="blog-section-header">
+            <h2>${cat.icon}&nbsp;${cat.label}</h2>
+            <a href="#" class="blog-see-all"
+               onclick="Blog.renderCategory('${id}');return false;">
+              Xem tất cả <i class="fa-solid fa-chevron-right"></i>
+            </a>
+          </div>
+          <div class="articles-grid">
+            ${cat.articles.slice(0, 2).map(a => this._card(a)).join('')}
+          </div>
+        </div>`)
+      .join('');
+
+    document.getElementById('blog-home-view').innerHTML = `
+      <!-- HERO -->
+      <div class="blog-hero" onclick="Blog.renderDetail('${featured.id}')"
+           role="button" tabindex="0"
+           aria-label="Đọc bài: ${featured.title}">
+        <img class="blog-hero__img" src="${featured.image}"
+             alt="${featured.title}" loading="lazy"/>
+        <div class="blog-hero__overlay"></div>
+        <div class="blog-hero__content">
+          <span class="hero-badge">
+            <i class="fa-solid fa-fire"></i> ${featured.categoryLabel}
+          </span>
+          <h1 class="blog-hero__title">${featured.title}</h1>
+          <p class="blog-hero__desc">${featured.excerpt}</p>
+          <div class="blog-hero__meta-bar">
+            <span><i class="fa-regular fa-calendar"></i> ${featured.date}</span>
+            <span><i class="fa-regular fa-clock"></i> ${featured.readTime} phút đọc</span>
+            <span class="blog-hero__cta">
+              Đọc ngay <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-COLUMN -->
+      <div class="blog-layout">
+        <div class="blog-main-col">${secs}</div>
+        ${this._sidebar()}
+      </div>`;
+
+    this._showView('blog-home-view');
+    this._hideBreadcrumb();
+  },
+
+  /* ── RENDER CATEGORY ──────────────────────────────────── */
+  _renderCategory(catId) {
+    this._showLoading(false);
+    const cat = this.data.categories[catId];
+
+    document.getElementById('blog-category-view').innerHTML = `
+      <div class="blog-category-header">
+        <h2>${cat.icon}&nbsp;${cat.label}</h2>
+        <span class="blog-cat-count">
+          <i class="fa-solid fa-layer-group"></i>
+          ${cat.articles.length} bài viết
+        </span>
+      </div>
+      <div class="articles-grid articles-grid--full">
+        ${cat.articles.map(a => this._card(a)).join('')}
+      </div>`;
+
+    document.getElementById('blog-category-view').dataset.id = catId;
+    this._showView('blog-category-view');
+    this._breadcrumb(cat.label);
+  },
+
+  /* ── RENDER DETAIL ────────────────────────────────────── */
+  _renderDetail(id) {
+    this._showLoading(false);
+    const a = this._find(id);
+    if (!a) {
+      document.getElementById('blog-detail-view').innerHTML =
+        '<div class="blog-error-box"><span>⚠️</span><p>Không tìm thấy bài viết.</p></div>';
+      this._showView('blog-detail-view');
+      return;
+    }
+
+    document.getElementById('blog-detail-view').innerHTML = `
+      <div class="blog-detail">
+
+        <!-- HERO ẢNH -->
+        <div class="blog-detail__hero">
+          <img src="${a.image}" alt="${a.title}" loading="lazy"/>
+          <div class="blog-detail__hero-overlay"></div>
+        </div>
+
+        <!-- 2 CỘT -->
+        <div class="blog-detail__wrapper">
+
+          <!-- MAIN -->
+          <article class="blog-detail__main">
+
+            <div class="blog-detail__meta-top">
+              <span class="article-badge ${a.badgeClass}">${a.categoryLabel}</span>
+              <span><i class="fa-regular fa-calendar"></i> ${a.date}</span>
+              <span><i class="fa-regular fa-clock"></i> ${a.readTime} phút đọc</span>
+            </div>
+
+            <h1 class="blog-detail__title">${a.title}</h1>
+
+            <div class="blog-detail__byline">
+              <span class="blog-detail__author">
+                <i class="fa-solid fa-user-pen"></i>
+                ${a.author || 'Đội ngũ Petopia'}
+              </span>
+            </div>
+
+            <div class="blog-detail__body">
+              ${this._renderBody(a.content)}
+            </div>
+
+            <div class="blog-detail__tags">
+              <i class="fa-solid fa-tags"></i>
+              <span class="blog-tag">${a.categoryLabel}</span>
+              <span class="blog-tag">Thú cưng</span>
+              <span class="blog-tag">Petopia</span>
+            </div>
+
+            <div class="blog-detail__share">
+              <span>Chia sẻ bài viết:</span>
+              <a href="#" class="share-btn share-fb" onclick="return false;">
+                <i class="fa-brands fa-facebook"></i> Facebook
+              </a>
+              <a href="#" class="share-btn share-zl" onclick="return false;">
+                <i class="fa-solid fa-comment-dots"></i> Zalo
+              </a>
+            </div>
+
+            ${this._related(id)}
+
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="blog-sidebar blog-detail__sidebar">
+            <div class="blog-sidebar-title">
+              <span>🔥</span> Bài viết phổ biến
+            </div>
+            ${this.data.popular.map(p => this._popularItem(p)).join('')}
+          </aside>
+        </div>
+      </div>`;
+
+    document.getElementById('blog-detail-view').dataset.id = id;
+    this._showView('blog-detail-view');
+    this._breadcrumb(a.title.length > 45 ? a.title.slice(0, 45) + '…' : a.title);
+  },
+
+  /* ── BUILD HELPERS ────────────────────────────────────── */
+  _card(a) {
+    return `
+      <article class="article-card"
+        onclick="Blog.renderDetail('${a.id}')"
+        role="button" tabindex="0">
+        <div class="article-card__img-wrap">
+          <img class="article-card__img" src="${a.image}"
+               alt="${a.title}" loading="lazy"/>
+          <span class="article-card__read-badge">
+            <i class="fa-regular fa-clock"></i> ${a.readTime} phút
+          </span>
+        </div>
+        <div class="article-card__body">
+          <span class="article-badge ${a.badgeClass}">${a.categoryLabel}</span>
+          <h3 class="article-card__title">${a.title}</h3>
+          <p  class="article-card__desc">${a.excerpt}</p>
+          <div class="article-card__meta">
+            <span><i class="fa-regular fa-calendar"></i> ${a.date}</span>
+            <span><i class="fa-solid fa-user"></i> ${a.author || 'Petopia'}</span>
+          </div>
+          <div class="article-card__cta">
+            Đọc bài viết <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </article>`;
+  },
+
+  _sidebar() {
+    return `
+      <aside class="blog-sidebar">
+        <div class="blog-sidebar-title"><span>🔥</span> Bài viết phổ biến</div>
+        ${this.data.popular.map(p => this._popularItem(p)).join('')}
+      </aside>`;
+  },
+
+  _popularItem(p) {
+    return `
+      <div class="popular-post"
+           onclick="Blog.renderDetail('${p.id}')"
+           role="button" tabindex="0">
+        <img class="popular-post__img" src="${p.image}"
+             alt="${p.title}" loading="lazy"/>
+        <div>
+          <p class="popular-post__title">${p.title}</p>
+          <p class="popular-post__date">
+            <i class="fa-regular fa-calendar"></i> ${p.date}
+          </p>
+        </div>
+      </div>`;
+  },
+
+  _related(curId) {
+    const pool = [];
+    Object.values(this.data.categories).forEach(cat =>
+      cat.articles.forEach(a => { if (a.id !== curId) pool.push(a); })
+    );
+    if (!pool.length) return '';
+    const picks = pool.sort(() => .5 - Math.random()).slice(0, 2);
+    return `
+      <div class="blog-related">
+        <h3 class="blog-related__title">
+          <i class="fa-solid fa-bookmark"></i> Bài viết liên quan
+        </h3>
+        <div class="blog-related__grid">
+          ${picks.map(a => `
+            <div class="blog-related__card"
+                 onclick="Blog.renderDetail('${a.id}')"
+                 role="button" tabindex="0">
+              <img src="${a.image}" alt="${a.title}" loading="lazy"/>
+              <div class="blog-related__info">
+                <span class="article-badge ${a.badgeClass} badge--sm">
+                  ${a.categoryLabel}
+                </span>
+                <p>${a.title}</p>
+              </div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+  },
+
+  /* ── CONTENT RENDERER ─────────────────────────────────── */
+  _renderBody(blocks) {
+    if (!blocks?.length) return '<p>Nội dung đang được cập nhật…</p>';
+    return blocks.map(b => {
+      switch (b.type) {
+        case 'paragraph':
+          return `<p>${b.text}</p>`;
+        case 'heading':
+          return `<h2 class="blog-content-h2">${b.text}</h2>`;
+        case 'subheading':
+          return `<h3 class="blog-content-h3">${b.text}</h3>`;
+        case 'list':
+          return (b.title ? `<h3 class="blog-content-h3">${b.title}</h3>` : '') +
+            `<ul class="blog-content-list">
+              ${b.items.map(i => `<li>${i}</li>`).join('')}
+             </ul>`;
+        case 'ordered-list':
+          return (b.title ? `<h3 class="blog-content-h3">${b.title}</h3>` : '') +
+            `<ol class="blog-content-list blog-content-list--ol">
+              ${b.items.map(i => `<li>${i}</li>`).join('')}
+             </ol>`;
+        case 'tip':
+          return `
+            <div class="blog-callout blog-callout--tip">
+              <div class="blog-callout__icon">💡</div>
+              <div class="blog-callout__body">
+                ${b.title ? `<strong>${b.title}</strong>` : ''}
+                <p>${b.text}</p>
+              </div>
+            </div>`;
+        case 'warning':
+          return `
+            <div class="blog-callout blog-callout--warning">
+              <div class="blog-callout__icon">⚠️</div>
+              <div class="blog-callout__body">
+                ${b.title ? `<strong>${b.title}</strong>` : ''}
+                <p>${b.text}</p>
+              </div>
+            </div>`;
+        case 'image':
+          return `
+            <figure class="blog-figure">
+              <img src="${b.src}" alt="${b.alt || ''}" loading="lazy"/>
+              ${b.caption ? `<figcaption>${b.caption}</figcaption>` : ''}
+            </figure>`;
+        case 'divider':
+          return '<hr class="blog-divider"/>';
+        default: return '';
+      }
+    }).join('\n');
+  },
+
+  /* ── UTILS ────────────────────────────────────────────── */
+  _find(id) {
+    if (this.data.featured.id === id) return this.data.featured;
+    for (const cat of Object.values(this.data.categories)) {
+      const f = cat.articles.find(a => a.id === id);
+      if (f) return f;
+    }
+    return this.data.popular.find(p => p.id === id) || null;
+  },
+
+  _showView(id) {
+    ['blog-home-view', 'blog-category-view', 'blog-detail-view'].forEach(v => {
+      const el = document.getElementById(v);
+      if (el) el.style.display = (v === id) ? 'block' : 'none';
+    });
+    const bp = document.getElementById('blog-page');
+    if (bp) setTimeout(() => bp.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+  },
+
+  _showLoading(show) {
+    const el = document.getElementById('blog-loading');
+    if (el) el.style.display = show ? 'flex' : 'none';
+  },
+
+  _breadcrumb(title) {
+    const nav = document.getElementById('blog-breadcrumb');
+    const t   = document.getElementById('blog-breadcrumb-title');
+    if (nav) nav.style.display = 'flex';
+    if (t)   t.textContent = title;
+  },
+
+  _hideBreadcrumb() {
+    const nav = document.getElementById('blog-breadcrumb');
+    if (nav) nav.style.display = 'none';
+  },
+
+  _showError(msg) {
+    this._showLoading(false);
+    const el = document.getElementById('blog-loading');
+    if (el) {
+      el.style.display = 'flex';
+      el.innerHTML = `<div class="blog-error-box"><span>⚠️</span><p>${msg}</p></div>`;
+    }
+  }
+};
+
+/* ── AUTO-INIT ─────────────────────────────────────────── */
+(function () {
+  let inited = false;
+  document.addEventListener('DOMContentLoaded', () => {
+    const orig = window.showPage;
+    if (typeof orig !== 'function') return;
+    window.showPage = function (page) {
+      orig(page);
+      if (page === 'blog' && !inited) { inited = true; Blog.init(); }
+    };
+  });
+})();
+let jobsData = [];
+
+fetch("../json/jobs.json")
+.then(res => res.json())
+.then(data => {
+    jobsData = data.jobs;
+});
+function showJob(id){
+
+    const job = jobsData.find(item => item.id == id);
+
+    if(!job) return;
+
+    let html = `
+        <button class="back-btn" onclick="showAllJobs()">
+            ← Trở về danh sách
+        </button>
+
+        <h2>${job.title}</h2>
+
+        <p><strong>Lương:</strong> ${job.salary}</p>
+
+        <p><strong>Địa điểm:</strong> ${job.location}</p>
+
+        <h3>Mô tả công việc</h3>
+
+        <ul>
+            ${job.description.map(item =>
+                `<li>${item}</li>`
+            ).join("")}
+        </ul>
+
+        <h3>Yêu cầu</h3>
+
+        <ul>
+            ${job.requirements.map(item =>
+                `<li>${item}</li>`
+            ).join("")}
+        </ul>
+    `;
+
+    document.getElementById("jobContent").innerHTML = html;
+    document.getElementById("jobModal").style.display = "block";
+}
+
+function showAllJobs(){
+
+    currentView = "list";
+
+    let html = `
+        <h2>Tất cả vị trí tuyển dụng</h2>
+        <div class="all-jobs-list">
+    `;
+
+    jobsData.forEach(job => {
+
+        html += `
+            <div class="job-box">
+
+                <h3>${job.title}</h3>
+
+                <p><strong>Lương:</strong> ${job.salary}</p>
+
+                <p><strong>Địa điểm:</strong> ${job.location}</p>
+
+                <button onclick="showJob(${job.id})">
+                    Xem chi tiết
+                </button>
+
+            </div>
+        `;
+    });
+
+    html += `</div>`;
+
+    document.getElementById("jobContent").innerHTML = html;
+    document.getElementById("jobModal").style.display = "block";
+}
+function closeJobModal(){
+    document.getElementById("jobModal").style.display = "none";
+}

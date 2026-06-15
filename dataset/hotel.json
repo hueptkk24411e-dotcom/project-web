@@ -1,0 +1,24 @@
+{
+  "rooms":[
+    {
+      "id":1,
+      "name":"P101",
+      "type":"Phòng Thường",
+      "price":"200.000đ",
+      "rating":4.9,
+      "booked":125,
+      "status":"available",
+      "image":"../images/hotel/p101.jpg"
+    },
+    {
+      "id":2,
+      "name":"P102",
+      "type":"Phòng Thường",
+      "price":"200.000đ",
+      "rating":4.8,
+      "booked":98,
+      "status":"available",
+      "image":"../images/hotel/p102.jpg"
+    }
+  ]
+}

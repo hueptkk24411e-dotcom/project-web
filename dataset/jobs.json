@@ -1,0 +1,40 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "name": "🐾 Phòng Thường",
+      "price": "200.000đ / ngày",
+      "image": "../images/hotel/room1.png",
+      "description": "Không gian sạch sẽ, thoáng mát, phù hợp cho thú cưng lưu trú ngắn ngày.",
+      "services": [
+        "Giám sát 24/7",
+        "Ăn uống đầy đủ",
+        "Vệ sinh hàng ngày"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "🐾 Phòng Cao Cấp",
+      "price": "350.000đ / ngày",
+      "image": "../images/hotel/room2.png",
+      "description": "Phòng rộng rãi với khu vui chơi riêng, phù hợp cho thú cưng năng động.",
+      "services": [
+        "Giám sát 24/7",
+        "Khu vui chơi riêng",
+        "Chăm sóc nâng cao"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "🐾 Phòng VIP",
+      "price": "600.000đ / ngày",
+      "image": "../images/hotel/room3.png",
+      "description": "Không gian riêng tư, dịch vụ VIP với chế độ chăm sóc đặc biệt.",
+      "services": [
+        "Camera theo dõi riêng",
+        "Thực đơn cao cấp",
+        "Chăm sóc sức khỏe đặc biệt"
+      ]
+    }
+  ]
+}

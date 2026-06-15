@@ -1,0 +1,276 @@
+.room-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    z-index:9999;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.room-modal-content{
+    width:90%;
+    max-width:1400px;
+    height:90vh;
+
+    background:white;
+    border-radius:20px;
+
+    overflow-y:auto;
+    padding:30px;
+
+    position:relative;
+}
+
+.close-modal{
+    position:absolute;
+    top:15px;
+    right:25px;
+
+    font-size:40px;
+    cursor:pointer;
+}
+.product-detail{
+    display:flex;
+    gap:40px;
+}
+
+.product-left{
+    width:45%;
+}
+
+.main-image{
+    width:100%;
+    border-radius:15px;
+}
+
+.thumb-list{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.thumb-list img{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.product-right{
+    flex:1;
+}
+
+.product-right h1{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.product-price{
+    font-size:38px;
+    color:#ff6600;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.product-desc{
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.service-list{
+    margin-bottom:25px;
+}
+
+.service-list li{
+    margin-bottom:10px;
+}
+
+.quantity-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.quantity-box button{
+    width:40px;
+    height:40px;
+}
+
+.booking-btn{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:15px 40px;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+}
+.image-modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.9);
+    z-index:10000;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.image-modal img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:15px;
+}
+
+.image-close{
+    position:absolute;
+    top:20px;
+    right:35px;
+
+    color:white;
+    font-size:50px;
+    cursor:pointer;
+    font-weight:bold;
+}
+.room-layout{
+    display:flex;
+    gap:40px;
+}
+
+.room-left{
+    width:40%;
+}
+
+.room-right{
+    flex:1;
+}
+
+.main-room-image{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+.room-gallery{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.room-gallery img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.room-base-price{
+    font-size:36px;
+    color:#ff6b00;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.room-main-desc{
+    line-height:1.8;
+    margin-bottom:30px;
+}
+.variant-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(300px,1fr));
+
+    gap:20px;
+}
+
+.variant-card{
+    background:white;
+    border:1px solid #eee;
+    border-radius:15px;
+    overflow:hidden;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.variant-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    cursor:pointer;
+}
+
+.variant-info{
+    padding:15px;
+}
+
+.variant-info h3{
+    margin-bottom:10px;
+}
+
+.variant-price{
+    font-size:24px;
+    color:#ff6b00;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.image-modal{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.95);
+
+    z-index:10000;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.image-modal img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:15px;
+
+}
+
+.image-close{
+    position:absolute;
+    top:20px;
+    right:40px;
+
+    color:white;
+    font-size:50px;
+    cursor:pointer;
+}
+.room-action{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+
+.all-room-btn{
+    background:white;
+    color:#6d951d;
+    border:2px solid #6d951d;
+    padding:15px 30px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.all-room-btn:hover{
+    background:#6d951d;
+    color:white;
+}
