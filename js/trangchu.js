@@ -291,7 +291,10 @@ function showPage(page){
     document.getElementById("shop-page").style.display = "none";
     document.getElementById("contact-page").style.display = "none";
     document.getElementById('about-page').style.display='none';
-    
+    document.getElementById('room-detail-page').style.display='none';
+    document.getElementById('viewroom-page').style.display='none';
+    document.getElementById('booking-page').style.display='none';
+  
     document.getElementById(page + "-page").style.display = "block"
 }
 function showAbout(type){
@@ -333,7 +336,7 @@ const Blog = {
   async init() {
     this._showLoading(true);
     try {
-      const res = await fetch('../json/blog.json');
+      const res = await fetch('../dataset/blog.json');
       if (!res.ok) throw new Error('HTTP ' + res.status);
       this.data = await res.json();
       this._renderHome();
@@ -723,7 +726,7 @@ const Blog = {
 })();
 let jobsData = [];
 
-fetch("../json/jobs.json")
+fetch("../dataset/jobs.json")
 .then(res => res.json())
 .then(data => {
     jobsData = data.jobs;
@@ -802,3 +805,82 @@ function showAllJobs(){
 function closeJobModal(){
     document.getElementById("jobModal").style.display = "none";
 }
+function openStoreModal(){
+
+    document.getElementById("storeModal").style.display = "block";
+
+    loadStores();
+}
+
+function closeStoreModal(){
+
+    document.getElementById("storeModal").style.display = "none";
+}
+
+function loadStores(){
+
+    fetch("../dataset/store.json")
+    .then(res => res.json())
+    .then(data => {
+
+        let html = "";
+
+        if (!data.stores) return;
+
+        data.stores.forEach(store => {
+
+            let services = "";
+
+            store.services.forEach(service => {
+
+                services += `
+                <span class="service-tag">
+                    ${service}
+                </span>
+                `;
+            });
+
+            html += `
+            <div class="store-card">
+
+                <h3>${store.name}</h3>
+
+                <p>
+                    📍 ${store.address}
+                </p>
+
+                <p>
+                    📞 ${store.phone}
+                </p>
+
+                <p>
+                    🕒 ${store.openTime}
+                </p>
+
+                <div>
+                    ${services}
+                </div>
+
+            </div>
+            `;
+        });
+
+        document.getElementById("storeContainer").innerHTML = html;
+  })
+    .catch(err => {
+        console.error("Lỗi khi tải dữ liệu cửa hàng:", err);
+    });
+}
+function openShop() {
+    showPage('shop');
+
+    setTimeout(() => {
+        switchTab('home');
+    }, 50);
+}
+// Khởi tạo mảng lưu danh sách đặt phòng toàn cục
+let hotelBookings = [];
+let currentSelectedRoom = null; 
+const PICKUP_FEE = 50000; // Phí dịch vụ đón tận nơi cố định
+
+// 1. Hàm bắt sự kiện khi click nút Đặt phòng ngay ngoài giao diện chính

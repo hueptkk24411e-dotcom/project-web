@@ -3,11 +3,11 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Petopia</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="stylesheet" href="../css/main.css">
 <link rel="stylesheet" href="../css/chinhsach.css">
 <link rel="stylesheet" href="../css/hotel.css">
@@ -16,10 +16,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <link rel="stylesheet" href="../css/recruit.css">
 <link rel="stylesheet" href="../css/blog.css">
 <link rel="stylesheet" href="../css/contact.css"/>
-
+<link rel="stylesheet" href="../css/shop.css"/>
+<script src="../js/shop.js"></script>
+<link rel="stylesheet" href="../css/chatbox.css">
 <script src="../js/contact.js"></script>
 <script src="../js/hotel.js"></script>
 <script src="../js/trangchu.js"></script>
+
+<script>
+    // Hàm này sẽ được gọi khi nhấp vào "Cửa hàng"
+    function openShop() {
+        showPage('shop'); // Hiển thị toàn bộ section cửa hàng
+        switchTab('home'); // Kích hoạt tab sản phẩm (tab-home) bên trong section cửa hàng
+    }
+</script>
 <script src="../js/chinhsach.js"></script>
 </head>
 <body>
@@ -30,37 +40,42 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         <div class="left-box">
 
             <div class="header-logo">
-                <img src="../images/bglogo.png" alt="">
+                <a href="#" onclick="showPage('home')"><img  src="../images/bglogo.png" alt=""></a>
             </div>
 
-            <div class="header-search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search">
-            </div>
-
+<div class="header-search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm, thương hiệu..."
+                        onkeyup="handleSearch()">
+                
+                </div>
         </div>
 
         <div class="right-box">
 
-            <a href="#" class="header-action-item">
+            <a href="#"   onclick="showPage('contact')" class="header-action-item">
                 <i class="fa-regular fa-circle-question"></i>
-                <span>Hỗ trợ</span>
+                <span> Hỗ trợ</span>
+            </a>
+                    
+                <a class="header-action-item" onclick="switchTab('wishlist')" id="tab-btn-wishlist">
+                    <i class="fas fa-heart"></i> Yêu Thích <span class="badge-count" id="wishlistCount">0</span>
+                </a>
+                <a class="header-action-item" onclick="switchTab('orders')" id="tab-btn-orders">
+                    <i class="fas fa-box-open"></i><span> Đơn Hàng</span>
+                </a>              
+            <a class="header-action-item" onclick="switchTab('cart')" id="tab-btn-cart">
+                    <i class="fas fa-shopping-cart"></i><span> Giỏ Hàng </span><span class="badge-count" id="cartCount">0</span>
             </a>
 
-            <a href="#" class="header-action-item">
-                <i class="fa-regular fa-user"></i>
-                <span>Đăng nhập</span>
-            </a>
-
-            <a href="#" class="header-action-item">
-                <i class="fa-solid fa-basket-shopping"></i>
-                <span>Giỏ hàng</span>
-            </a>
-
-            <a href="#" class="header-btn-profile">
-                Hồ sơ thú cưng
-            </a>
-
+           <div id="userAuthSection">
+    <a href="login.html" class="header-action-item">
+        <i class="fa-regular fa-user"></i>
+        <span>Đăng nhập</span>
+    </a>
+</div>
+<a href="#"class="header-btn-profile" onclick="openPetModal()">Hồ sơ thú cưng</a>
+                     
         </div>
 
     </div>
@@ -75,9 +90,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             </li>
 
             <li>
-                <a href="#" onclick="showPage('shop')">
-                    Shop
-                </a>
+              <a href="#" onclick="openShop()">
+    Cửa hàng
+</a>
+
             </li>
 
             <li>
@@ -120,11 +136,188 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </p>
 
 </section>
+
 <!-- shop -->
+ 
+ 
  <section id="shop-page" style="display:none;">
+ 
+  <div id="tab-home" class="tab-content active">
+        <div class="main-layout">
+            <aside class="sidebar-filter">
+                <div class="filter-section">
+                    <div class="filter-title">Danh mục thú cưng</div>
+                    <ul class="filter-list" id="filter-category">
+                        <li class="active" onclick="applyFilter('category', 'all')"><i class="fas fa-paw"></i> Tất cả</li>
+                        <li onclick="applyFilter('category', 'Chó')"><i class="fas fa-dog"></i> Dành cho Chó</li>
+                        <li onclick="applyFilter('category', 'Mèo')"><i class="fas fa-cat"></i> Dành cho Mèo</li>
+                    </ul>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-title">Loại sản phẩm</div>
+                    <ul class="filter-list" id="filter-type">
+                        <li class="active" onclick="applyFilter('type', 'all')"><i class="fas fa-list"></i> Tất cả</li>
+                        <li onclick="applyFilter('type', 'Thức ăn')"><i class="fas fa-bone"></i> Thức ăn hạt</li>
+                        <li onclick="applyFilter('type', 'Snack')"><i class="fas fa-cookie"></i> Bánh thưởng / Snack</li>
+                        <li onclick="applyFilter('type', 'Đồ dùng')"><i class="fas fa-shapes"></i> Đồ dùng / Đồ chơi</li>
+                    </ul>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-title">Thương hiệu</div>
+                    <ul class="filter-list" id="filter-brand">
+                    </ul>
+                </div>
+            </aside>
 
+            <div class="content-area">
+                <div class="products-grid" id="productGrid"></div>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </div>
+    </div>
 
+    <div id="tab-wishlist" class="tab-content">
+        <h2 style="margin-bottom: 20px;"><i class="fas fa-heart"></i> Sản phẩm yêu thích</h2>
+        <div class="products-grid" id="wishlistGrid"></div>
+    </div>
+
+    <div id="tab-cart" class="tab-content">
+        <h2 style="margin-bottom: 20px;"><i class="fas fa-shopping-cart"></i> Giỏ hàng của bạn</h2>
+        <div class="cart-container" id="cartContainer"></div>
+    </div>
+
+    <div id="tab-orders" class="tab-content">
+        <h2 style="margin-bottom: 20px;"><i class="fas fa-box"></i> Quản lý đơn hàng (Tracking)</h2>
+        <div id="ordersContainer"></div>
+    </div>
+
+    <div id="tab-account" class="tab-content">
+        <h2 style="margin-bottom: 20px;"><i class="fas fa-user-cog"></i> Quản lý tài khoản</h2>
+        <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); max-width: 600px;">
+            <p style="margin-bottom: 15px; color: var(--text-grey);">Cập nhật thông tin giao hàng mặc định để thanh toán nhanh hơn.</p>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Họ và tên người nhận:</label>
+                <input type="text" id="profileName" class="auth-input" placeholder="Nhập họ và tên">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Số điện thoại:</label>
+                <input type="text" id="profilePhone" class="auth-input" placeholder="Nhập số điện thoại">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Địa chỉ giao hàng mặc định:</label>
+                <input type="text" id="profileAddress" class="auth-input" placeholder="Nhập địa chỉ chi tiết (VD: Số nhà, Đường, Quận/Huyện, Tỉnh/TP)">
+            </div>
+
+            <button class="btn-checkout" style="width: auto; padding: 10px 25px;" onclick="saveProfile()">Lưu Thông Tin</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="productModal" onclick="closeModal('productModal', event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal('productModal')">&times;</button>
+            <div class="modal-img">
+                <img id="modalImg" src="" alt="Product" loading="lazy">
+            </div>
+            <div class="modal-info">
+                <div class="modal-brand" id="modalBrand"></div>
+                <h2 id="modalTitle"></h2>
+                <div class="product-rating" id="modalRating" style="margin-bottom: 15px; font-size: 16px;"></div>
+                <div class="modal-price-wrap">
+                    <span class="modal-price" id="modalPrice"></span>
+                    <span class="modal-original" id="modalOriginalPrice"></span>
+                    <span class="sale-badge" style="position: static;" id="modalDiscount"></span>
+                </div>
+                <div id="modalStockBadge" class="modal-stock"></div>
+                
+                <div class="modal-desc" id="modalDescription" style="max-height: 150px; overflow-y: auto; padding-right: 5px; margin-bottom: 15px;">
+                    </div>
+
+                <div style="display: flex; gap: 15px; margin-top: 20px;">
+                    <button class="btn-add-cart" id="modalAddToCartBtn" style="width: auto; flex: 1; padding: 15px; font-size: 16px;">Thêm vào giỏ</button>
+                    <button class="wishlist-btn" id="modalWishlistBtn" style="position: static; width: 50px; height: 50px; border: 1px solid var(--border-color);"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="checkoutModal" onclick="closeModal('checkoutModal', event)">
+        <div class="auth-modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal('checkoutModal')">&times;</button>
+            <h2 style="margin-bottom: 20px; text-align: center; color: var(--primary-orange);">Xác nhận đơn hàng</h2>
+
+            <div style="margin-bottom: 15px;">
+                <p style="font-weight: 600; margin-bottom: 8px;">Thông tin giao hàng:</p>
+                <input type="text" id="checkoutName" class="auth-input" placeholder="Họ và tên người nhận" style="margin-bottom: 10px;" required>
+                <input type="text" id="checkoutPhone" class="auth-input" placeholder="Số điện thoại" style="margin-bottom: 10px;" required>
+                <input type="text" id="checkoutAddress" class="auth-input" placeholder="Địa chỉ giao hàng chi tiết" required>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 600; margin-bottom: 10px;">Phương thức thanh toán:</p>
+                <label style="display: block; margin-bottom: 10px; cursor: pointer; color: var(--text-main);">
+                    <input type="radio" name="payMethod" value="COD" checked> Thanh toán khi nhận hàng (COD)
+                </label>
+                <label style="display: block; margin-bottom: 10px; cursor: pointer; color: var(--text-main);">
+                    <input type="radio" name="payMethod" value="BANK"> Chuyển khoản ngân hàng
+                </label>
+                <label style="display: block; margin-bottom: 10px; cursor: pointer; color: var(--text-main);">
+                    <input type="radio" name="payMethod" value="MOMO"> Ví điện tử MoMo
+                </label>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-color); padding-top: 15px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px;">
+                    <span>Tổng thanh toán:</span>
+                    <span id="checkoutTotal" style="color: var(--primary-orange);">0đ</span>
+                </div>
+            </div>
+
+            <button class="btn-checkout" onclick="confirmCheckout()">Chốt Đặt Hàng</button>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
  </section>
+<section id="room-detail-page" style="display:none;">
+    <div class="room-detail-container">
+        <button onclick="showPage('hotel')">← Quay lại</button>
+        <h1 id="room-category"></h1>
+        <div class="room-price">
+            <span id="room-price"></span>
+        </div>
+        <div id="room-grid"></div>
+    </div>
+</section>
+
+<section id="viewroom-page" style="display:none">
+  <div id="viewroom-page" class="viewroom-container">
+    <!-- BÊN TRÁI: Menu phân loại Chó / Mèo và Danh sách loại phòng -->
+    <aside class="viewroom-sidebar">
+        <div class="pet-toggle">
+            <button class="pet-btn active" onclick="switchPetTab('dog')">🐶 Phòng Cho Chó</button>
+            <button class="pet-btn" onclick="switchPetTab('cat')">🐱 Phòng Cho Mèo</button>
+        </div>
+        
+        <!-- Danh sách các phòng cụ thể sẽ tự động render vào đây -->
+        <div id="room-list-sidebar" class="room-list-sidebar">
+            <!-- JavaScript sẽ render danh sách phòng ở đây -->
+        </div>
+    </aside>
+
+    <!-- BÊN PHẢI: Nội dung chi tiết của phòng được chọn -->
+    <main class="viewroom-content">
+        <div id="room-detail-display">
+            <div class="empty-state">Vui lòng chọn một phòng bên trái để xem chi tiết 🐾</div>
+        </div>
+    </main>
+</div>
+    </main>
+</div>
+</section>
+
  <!-- grooming-->
  <section id="grooming-page" style="display:none;">
     <div class="container">
@@ -577,14 +770,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         <div class="banner-buttons">
 
-            <button class="btn-book">
-                BOOK NOW
+            <button class="btn-book">BOOK NOW</button>
+            <button class="btn-room" onclick="showViewRoom()">
+                View Room
             </button>
-
-            <button class="btn-room">
-                <a href="#viewroom">View Room</a>
-            </button>
-
+            
         </div>
 
         <div class="banner-features">
@@ -600,16 +790,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </div>
 
 </section>
-
-   
-    <div class="room-section" id="viewroom">
-         <div id="room-detail-section">
+<div class="room-section" id="viewroom">
+         <div class="choose-room">
 
         <div class="room-header">
             
             <h1 style="color: orange;">CÁC LOẠI PHÒNG </h1>
 
-         <a href="#" onclick="showAllRooms()">Xem tất cả phòng →</a>
+         <a href="#" onclick="showViewRoom('shop')">Xem tất cả phòng →</a>
 
         </div>
 
@@ -631,7 +819,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                         <li>Ăn uống đầy đủ</li>
                     </ul>
 
-                    <button class="detail-btn" onclick="showRoomDetail(1)">
+                    <button  class="detail-btn" onclick="showCategoryDetail('normal')">
                         Xem chi tiết
                     </button>
                     
@@ -642,7 +830,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
             <div class="hotel-card">
 
-                <img src="../images/hotel/room2.png">
+                <img src="https://i.pinimg.com/1200x/77/03/ce/7703ce48a7671f9362e788176a10fc95.jpg">
 
                 <div class="card-content">
 
@@ -657,8 +845,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                         <li>Chăm sóc nâng cao</li>
                     </ul>
 
-                    <button class="detail-btn" onclick="showRoomDetail(2)">
-Xem chi tiết
+                    <button  class="detail-btn" onclick="showCategoryDetail('premium')">
+                        Xem chi tiết
                     </button>
                 </div>
             </div>
@@ -680,7 +868,7 @@ Xem chi tiết
                         <li>Chăm sóc đặc biệt</li>
                     </ul>
 
-                    <button class="detail-btn" onclick="showRoomDetail(3)">
+                     <button  class="detail-btn" onclick="showCategoryDetail('vip')">
                         Xem chi tiết
                     </button>
                     </div>
@@ -689,8 +877,7 @@ Xem chi tiết
             </div>
 
         </div>
-
-    </div>
+        </div>
     <section class="pet-services">
 
         <!-- LEFT -->
@@ -791,7 +978,7 @@ Xem chi tiết
         <div class="cards">
 
             <div class="card">
-                <img src="https://i.pinimg.com/1200x/05/77/62/05776206c0cc9e9c9a9f3fa0b40fcf5c.jpg">
+                <img src="https://i.pinimg.com/1200x/42/20/53/4220537ec40289a00209948a716a72bb.jpg">
 
                 <div class="card-content">
                     <h3>Grooming</h3>
@@ -889,7 +1076,7 @@ Xem chi tiết
             Mỗi phòng được trang bị đầy đủ các tiện ích cần thiết nhằm mang đến môi trường
             nghỉ ngơi thoải mái nhất cho thú cưng.
 </p>
-        <img src="../images/hotel/4.png" alt="">
+        <img src="https://i.pinimg.com/1200x/7d/c9/66/7dc9663c96aeb90cc1973278d3150598.jpg" alt="">
 
     </div>
 
@@ -1005,249 +1192,128 @@ Xem chi tiết
 </section> 
 
     <!-- ĐÁNH GIÁ --> 
-     <h2 style="color: green;">ĐÁNH GIÁ KHÁCH HÀNG 🐾</h2>
+     
+   <h2 style="color: green;">ĐÁNH GIÁ KHÁCH HÀNG 🐾</h2>
 
-   <section class="reviews">
-   
+<section class="reviews">
 
-    <div class="reviews-container">
-
-        <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>
-                "Tôi rất yên tâm khi gửi bé Poodle tại Petopia.
-                Nhân viên thân thiện và thường xuyên cập nhật
-                tình trạng của bé."
-            </p>
-
-            <div class="customer">
-                <img src="https://i.pinimg.com/736x/26/2f/4e/262f4eca035f6b53212fcc3cf4574b7d.jpg" alt="Nguyễn Thu">
-                <div>
-                    <h4>Nguyễn Thu</h4>
-                    <span>Khách hàng</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>
-                "Dịch vụ tuyệt vời! Phòng ốc sạch sẽ, bé nhà tôi
-                về rất vui vẻ và khỏe mạnh. Sẽ tiếp tục ủng hộ
-                Petopia."
-            </p>
-
-            <div class="customer">
-                <img src="https://i.pinimg.com/736x/b0/0f/99/b00f99ff91fbf34c720d8e8c1f4c32f9.jpg" alt="Trần Minh">
-                <div>
-                    <h4>Trần Minh</h4>
-                    <span>Khách hàng</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>
-                "Petopia như một ngôi nhà thứ hai của bé.
-                Cảm ơn đội ngũ đã chăm sóc bé tận tình!"
-            </p>
-            <div class="customer">
-                <img src="https://i.pinimg.com/736x/d7/4b/ff/d74bffc47680592a4d739ae3a6a97381.jpg" alt="Lê Hương">
-                <div>
-                    <h4>Lê Hương</h4>
-                    <span>Khách hàng</span>
-                </div>
-            </div>
-        </div>
+    <div class="reviews-container" id="reviews-container">
 
     </div>
-</section>
 
+</section>
     <!-- FAQ + FORM -->
-     <div class="panel-box">
- <h2 style="color: orange;">CÂU HỎI THƯỜNG GẶP</h2>
-    <div class="faq-section">
+ <section class="faq-section">
 
-    <div class="hotel-faq-item">
-        <button class="hotel-faq-question">
-            Tôi có cần đặt phòng trước không?
-            <span>▼</span>
-        </button>
-        <div class="hotel-faq-answer">
-            Có. Chúng tôi khuyến khích khách hàng đặt phòng trước để đảm bảo còn chỗ và lựa chọn được loại phòng phù hợp, đặc biệt vào cuối tuần và dịp lễ.
+    <h2>🐾 CÂU HỎI THƯỜNG GẶP 🐾</h2>
+
+     <div class="faq-grid">
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                Tôi có cần đặt phòng trước không?
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                Có. Chúng tôi khuyến khích khách hàng đặt phòng trước để đảm bảo còn chỗ và lựa chọn được loại phòng phù hợp, đặc biệt vào cuối tuần và dịp lễ.
+            </div>
         </div>
-    </div>
 
-    <div class="hotel-faq-item">
-        <button class="hotel-faq-question">
-            Thú cưng cần điều kiện gì để lưu trú?
-            <span>▼</span>
-        </button>
-        <div class="hotel-faq-answer">
-            Thú cưng cần có sức khỏe ổn định, được tiêm phòng đầy đủ và không mắc các bệnh truyền nhiễm để đảm bảo an toàn cho tất cả thú cưng tại Petopia.
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                Thú cưng cần điều kiện gì để lưu trú?
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                Thú cưng cần có sức khỏe ổn định, được tiêm phòng đầy đủ và không mắc các bệnh truyền nhiễm để đảm bảo an toàn cho tất cả thú cưng tại Petopia.
+            </div>
         </div>
-    </div>
 
-    <div class="hotel-faq-item">
-        <button class="hotel-faq-question">
-            Giá phòng được tính như thế nào?
-            <span>▼</span>
-        </button>
-        <div class="hotel-faq-answer">
-            Giá phòng được tính theo loại phòng và số ngày lưu trú. Khách hàng có thể lựa chọn phòng Basic hoặc Premium tùy theo nhu cầu.
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                Giá phòng được tính như thế nào?
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                Giá phòng được tính theo loại phòng và số ngày lưu trú. Khách hàng có thể lựa chọn phòng Basic hoặc Premium tùy theo nhu cầu.
+            </div>
         </div>
-    </div>
 
-    <div class="hotel-faq-item">
-        <button class="hotel-faq-question">
-            Tôi có thể mang thức ăn riêng cho thú cưng không?
-            <span>▼</span>
-        </button>
-        <div class="hotel-faq-answer">
-            Có. Bạn hoàn toàn có thể mang theo thức ăn, đồ chơi hoặc vật dụng quen thuộc để thú cưng cảm thấy thoải mái hơn.
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                Tôi có thể mang thức ăn riêng cho thú cưng không?
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                Có. Bạn hoàn toàn có thể mang theo thức ăn, đồ chơi hoặc vật dụng quen thuộc để thú cưng cảm thấy thoải mái hơn.
+            </div>
         </div>
-    </div>
 
-    <div class="hotel-faq-item">
-        <button class="hotel-faq-question">
-            Petopia có nhân viên chăm sóc 24/7 không?
-            <span>▼</span>
-        </button>
-        <div class="hotel-faq-answer">
-            Có. Đội ngũ nhân viên luôn theo dõi và chăm sóc thú cưng trong suốt thời gian lưu trú nhằm đảm bảo an toàn và sức khỏe tốt nhất.
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                Petopia có nhân viên chăm sóc 24/7 không?
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                Có. Đội ngũ nhân viên luôn theo dõi và chăm sóc thú cưng trong suốt thời gian lưu trú nhằm đảm bảo an toàn và sức khỏe tốt nhất.
+            </div>
         </div>
-    </div>
 
-    <div class="hotel-faq-item">
-        <button class="hotel-faq-question">
-            Tôi có nhận được hình ảnh cập nhật của thú cưng không?
-            <span>▼</span>
-        </button>
-        <div class="hotel-faq-answer">
-            Có. Petopia sẽ gửi hình ảnh hoặc video cập nhật định kỳ để chủ nuôi có thể theo dõi tình trạng của thú cưng.
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                Tôi có nhận được hình ảnh cập nhật của thú cưng không?
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                Có. Petopia sẽ gửi hình ảnh hoặc video cập nhật định kỳ để chủ nuôi có thể theo dõi tình trạng của thú cưng.
+            </div>
         </div>
-    </div>
 
-    <div class="hotel-faq-item">
-        <button class="hotel-faq-question">
-            Nếu thú cưng bị bệnh trong thời gian lưu trú thì sao?
-            <span>▼</span>
-        </button>
-        <div class="hotel-faq-answer">
-            Nhân viên sẽ liên hệ ngay với chủ nuôi và áp dụng các biện pháp chăm sóc cần thiết. Trong trường hợp khẩn cấp, thú cưng sẽ được đưa đến cơ sở thú y liên kết.
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                Nếu thú cưng bị bệnh trong thời gian lưu trú thì sao?
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                Nhân viên sẽ liên hệ ngay với chủ nuôi và áp dụng các biện pháp chăm sóc cần thiết. Trong trường hợp khẩn cấp, thú cưng sẽ được đưa đến cơ sở thú y liên kết.
+            </div>
         </div>
-    </div>
 
-    <div class="hotel-faq-item">
-        <button class="hotel-faq-question">
-            Có hỗ trợ đưa đón thú cưng tận nơi không?
-            <span>▼</span>
-        </button>
-        <div class="hotel-faq-answer">
-            Có. Petopia cung cấp dịch vụ đưa đón tận nơi theo yêu cầu để giúp khách hàng thuận tiện hơn khi sử dụng dịch vụ lưu trú.
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                Có hỗ trợ đưa đón thú cưng tận nơi không?
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                Có. Petopia cung cấp dịch vụ đưa đón tận nơi theo yêu cầu để giúp khách hàng thuận tiện hơn khi sử dụng dịch vụ lưu trú.
+            </div>
         </div>
-    </div>
-    </div>
 
-</div>
- <h2 style="color: GREEN;">ĐẶT PHÒNG NGAY</h2>
-
-       <div class="booking-container">
-
-<form class="hotel-booking-form" id="bookingForm">
-
-
-    <div class="hotel-form-group">
-        <label>Tên thú cưng <span>*</span></label>
-        <input type="text" placeholder="Nhập tên thú cưng" required>
     </div>
 
-    <div class="hotel-form-group">
-        <label>Loại thú cưng <span>*</span></label>
-        <select required>
-            <option value="">-- Chọn loại thú cưng --</option>
-            <option>Chó</option>
-            <option>Mèo</option>
-        </select>
-    </div>
+</section>   
 
-    <div class="hotel-form-group">
-        <label>Giống loài</label>
-        <select>
-            <option value="">Chọn giống loài</option>
-            <option>Poodle</option>
-            <option>Golden</option>
-            <option>Husky</option>
-        </select>
-    </div>
+    <section class="promo-banner">
+        <div class="promo-content">
+            <div class="promo-left">
+                <img src="https://i.pinimg.com/1200x/d7/2f/bb/d72fbbd457a1e311e1613e71c21a99a5.jpg" alt="Dog">
+            </div>
+            <div class="promo-text">
+                <h2>Bạn sắp đi công tác hoặc du lịch?</h2>
+                <p>Hãy để Petopia chăm sóc thú cưng của bạn.</p>
+            </div>
+            <div class="promo-btn">
+                <a href="#booking" class="book-btn" >
+                    ĐẶT PHÒNG NGAY 🐾
+                </a>
+            </div>
+        </div>
 
-    <div class="hotel-form-group">
-        <label>Loại phòng <span>*</span></label>
-        <select required>
-            <option value="">Chọn loại phòng</option>
-            <option>Phòng thường</option>
-            <option>Phòng cao cấp</option>
-            <option>Phòng VIP</option>
-        </select>
-    </div>
-
-    <div class="hotel-form-group">
-        <label>Ngày nhận phòng <span>*</span></label>
-        <input type="date" required>
-    </div>
-
-    <div class="hotel-form-group">
-        <label>Ngày trả phòng <span>*</span></label>
-        <input type="date" required>
-    </div>
-
-    <div class="hotel-form-group full-width">
-        <label>Ghi chú</label>
-        <textarea rows="3" placeholder="Nhập ghi chú nếu có"></textarea>
-    </div>
-
-    <div class="full-width">
-        <input type="checkbox" id="agree" required>
-        <label for="agree">
-            Tôi xác nhận thông tin đặt phòng là chính xác và đồng ý với các điều khoản của Petopia.
-        </label>
-    </div>
-    
-    <div type="submit"  class="full-width"  >
-    <button type="submit" class="btn-book" style="background-color: green; color: white;">
-        Đặt Phòng Ngay
-    </button>
-    <a href="https://zalo.me/0365507533" class="book-btn">
-    Tư vấn qua Zalo
-</a>
-</div>
-  
-
-</form>
-    </div>
+    </section>
 </section>
-<section class="promo-banner">
-    <div class="promo-content">
 
-        <div class="promo-left">
-            <img src="https://i.pinimg.com/1200x/d7/2f/bb/d72fbbd457a1e311e1613e71c21a99a5.jpg" alt="Dog">
-        </div>
-
-        <div class="promo-text">
-            <h2>Bạn sắp đi công tác hoặc du lịch?</h2>
-            <p>Hãy để Petopia chăm sóc thú cưng của bạn.</p>
-        </div>
-
-        <div class="promo-btn">
-            <a href="#booking" class="book-btn">
-                ĐẶT PHÒNG NGAY 🐾
-            </a>
-        </div>
-
-    </div>
 </section>
-</section>
+
 <section id="policy-page" style="display:none;">
 
 <div class="policy-layout">
@@ -1840,8 +1906,8 @@ Xem chi tiết
     <img src="../images/mèoooo.png"
          alt="Cat"
          class="banner-cat">
+    </section>
 </div>
-</section>
 <div id="member-content" style="display:none;">
     <section class="member-banner">
         <div class="member-content">
@@ -2170,7 +2236,7 @@ Xem chi tiết
 
         <div class="recruit-stat-item">
             <div class="recruit-icon">📍</div>
-            <h3>1</h3>
+            <h3>5</h3>
             <p>Cửa hàng tại HCM</p>
         </div>
 
@@ -2439,7 +2505,7 @@ Xem chi tiết
         <p>
             Gửi CV ngay hôm nay, chúng tôi rất mong được gặp bạn!
         </p>
-        <button class="recruit-career-apply-btn">
+        <button class="recruit-career-apply-btn"  onclick="showAllJobs()">
             🐾 Ứng tuyển ngay
         </button>
 
@@ -2449,7 +2515,7 @@ Xem chi tiết
 
             <span><a href="tel:0365507533">📞 0900 123 456</a></span>
 
-            <span a href="https://maps.app.goo.gl/upxYFEVHobfBSbx76" class="store-btn">📍 TP. Hồ Chí Minh</span>
+            <span><a href="https://maps.app.goo.gl/upxYFEVHobfBSbx76">📍 TP. Hồ Chí Minh</a></span>
 
         </div>
 
@@ -2457,23 +2523,199 @@ Xem chi tiết
     <div class="recruit-career-banner-right">
 
         <img src="../images/tủy.png" class="recruit-career-banner-cat">
+        </section>
     </div>
+</section>
+
 
 </section>
+<section id="booking-page" style="display: none; padding: 40px 0; background-color: #fcfcfc;">
+    <div class="booking-container">
+        <div id="formError" class="form-error"></div>
+       <div id="bookingStep1" class="booking-step">
+
+    <div class="hotel-modal-header">
+        <h2>
+            <i class="fa-solid fa-paw"></i>
+            BƯỚC 1: THÔNG TIN ĐẶT PHÒNG
+        </h2>
+        <p>
+            Vui lòng chọn thú cưng lưu trú từ danh sách của bạn
+        </p>
+    </div>
+
+    <div class="hotel-modal-form">
+
+        <div class="booking-form-grid">
+            <div class="hotel-form-group">
+                <label>Chọn thú cưng của bạn <span>*</span></label>
+               <input type="text" id="petName" placeholder="Tên thú cưng">
+<select id="petType">
+    <option value="Dog">Chó</option>
+    <option value="Cat">Mèo</option>
+</select>
+<input type="text" id="petBreed" placeholder="Giống loài" list="breedList">
+<datalist id="breedList"></datalist>
+<input type="number" id="petWeight" placeholder="Cân nặng (kg)"min="0.1"step="0.1">
+            </div>
+            <div class="hotel-form-group">
+                <label>Phòng đã chọn <span>*</span></label>
+                <input type="text" id="hotelRoomType" readonly>
+            </div>
+        </div>
+
+        <div class="booking-form-grid">
+            <div class="hotel-form-group">
+                <label>Ngày nhận phòng <span>*</span></label>
+                <input type="date" id="hotelCheckIn" required>
+            </div>
+
+            <div class="hotel-form-group">
+                <label>Ngày trả phòng <span>*</span></label>
+                <input type="date" id="hotelCheckOut" required>
+            </div>
+        </div>
+
+        <div class="hotel-form-group">
+            <label>Ghi chú đặc biệt</label>
+            <textarea
+                id="hotelNotes"
+                rows="3"
+                placeholder="Nhập ghi chú ăn uống, dắt đi dạo nếu có..."
+            ></textarea>
+        </div>
+
+        <div class="booking-agree-group">
+            <input type="checkbox" id="hotelAgree" id="pickupAgree"  required>
+
+            <label for="hotelAgree">  
+                Tôi xác nhận thông tin đặt phòng là chính xác và đồng ý với
+                các điều khoản của Petopia.
+            </label>
+        </div>
+
+        <button
+            type="button"
+            class="btn-booking-next"
+            onclick="goToStep2()"
+        >
+            TIẾP THEO: DỊCH VỤ ĐÓN TẬN NƠI
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+    </div>
+
 </div>
 
+        <div id="bookingStep2" class="booking-step" style="display: none;">
+            <div class="hotel-modal-header" style="text-align: center; margin-bottom: 25px;">
+                <h2 style="color: #ff6600; font-size: 22px;"><i class="fa-solid fa-truck-ramp-box"></i> BƯỚC 2: DỊCH VỤ ĐÓN TẬN NƠI</h2>
+                <p style="color: #666; font-size: 14px;">Petopia hỗ trợ đưa đón các bé tại nhà (Chi phí cố định: 50.000 VNĐ)</p>
+            </div>
 
+            <div class="hotel-modal-form">
+                <div class="pickup-options-wrapper">
+                    <label>
+                        <input type="radio" name="pickupOption" value="no" checked onclick="togglePickupFields(false)"> Không sử dụng dịch vụ đón
+                    </label>
+                    <label style="color: #ff6600;">
+                        <input type="radio" name="pickupOption" value="yes" onclick="togglePickupFields(true)"> Có sử dụng dịch vụ đón
+                    </label>
+                </div>
 
+                <div id="pickupFormDetails" style="display: none;">
+                    <div class="booking-form-grid">
+                        <div class="hotel-form-group">
+                            <label>Họ tên người liên hệ *</label>
+                            <input type="text" id="pickupName" placeholder="Nhập tên người gửi">
+                        </div>
+                        <div class="hotel-form-group">
+                            <label>Số điện thoại *</label>
+                            <input type="text"
+    id="pickupPhone"
+    placeholder="Nhập số điện thoại"
+    maxlength="10"
+    pattern="[0-9]{10}"
+    required>
+                        </div>
+                    </div>
+                    <div class="hotel-form-group">
+                        <label>Địa chỉ đón *</label>
+                        <input type="text" id="pickupAddress" placeholder="Nhập địa chỉ chính xác">
+                    </div>
+                    <div class="hotel-form-group">
+                        <label>Thời gian đón mong muốn *</label>
+                        <input type="datetime-local" id="pickupTime">
+                    </div>
+                    <div class="hotel-form-group">
+                        <label>Ghi chú đón</label>
+                        <textarea id="pickupNote" rows="2" placeholder="Ví dụ: Bé nhát người lạ..."></textarea>
+                    </div>
+                </div>
 
+                <div class="booking-actions-group">
+                    <button type="button" class="btn-booking-back" onclick="backToStep1()">
+                        <i class="fa-solid fa-arrow-left"></i> Trở lại
+                    </button>
+                    <button type="button" class="btn-booking-next" onclick="goToStep3()">
+                        TIẾP THEO: XEM XÁC NHẬN ĐƠN <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <div id="bookingStep3" class="booking-step" style="display: none;">
+            <div class="hotel-modal-header" style="text-align: center; margin-bottom: 25px;">
+                <h2 style="color: #4caf50; font-size: 22px;"><i class="fa-solid fa-square-check"></i> BƯỚC 3: XÁC NHẬN ĐẶT PHÒNG</h2>
+                <p style="color: #666; font-size: 14px;">Vui lòng rà soát lại thông tin và chi phí trước khi hoàn tất</p>
+            </div>
 
+            <div class="confirm-receipt-box">
+                <div class="receipt-row">
+                    <span>Thông tin bé:</span>
+                    <span id="cPetInfo">-</span>
+                </div>
+                <div class="receipt-row">
+                    <span>Loại phòng lưu trú:</span>
+                    <span id="cRoomName" style="color: #ff6600;">-</span>
+                </div>
+                <div class="receipt-row">
+                    <span>Thời gian lưu trú:</span>
+                    <span id="cStayDates">-</span>
+                </div>
+                <div class="receipt-row">
+                    <span>Dịch vụ đưa đón:</span>
+                    <span id="cPickupInfo">Không sử dụng</span>
+                </div>
+                
+                <div class="receipt-row-cost" style="margin-top: 10px;">
+                    <span>Tiền phòng:</span>
+                    <span id="priceRoomDetails">0 VNĐ</span>
+                </div>
+                <div class="receipt-row-cost">
+                    <span>Phí đón tận nơi:</span>
+                    <span id="pricePickupDetails">0 VNĐ</span>
+                </div>
+                <div class="receipt-row-total">
+                    <span>TỔNG THANH TOÁN:</span>
+                    <span id="priceFinalTotal" style="color: #d32f2f; font-size: 22px;">0 VNĐ</span>
+                </div>
+            </div>
 
-
-
-
+            <div class="booking-actions-group">
+                <button type="button" class="btn-booking-back" onclick="backToStep2()">
+                    <i class="fa-solid fa-arrow-left"></i> Sửa lại
+                </button>
+                <button type="button" class="btn-booking-submit" onclick="finalSubmitHotelBooking()">
+                    XÁC NHẬN ĐẶT PHÒNG
+                </button>
+            </div>
+        </div>
+    </div>
 </section>
 
     <footer>
+
         <div class="footer-top-bg">
             <div class="container footer-top">
                 <div class="footer-col col-info" style="flex: 1.5;">
@@ -2515,7 +2757,6 @@ Xem chi tiết
                         <li><a href="#">Thức ăn cho chó</a></li>
                         <li><a href="#">Thức ăn cho mèo</a></li>
                         <li><a href="#">Đồ chơi & phụ kiện</a></li>
-                        <li><a href="#">Khuyến mãi</a></li>
                         <li><a href="#">Thương hiệu</a></li>
                         <li><a href="#" onclick="showPage('blog')">Blog</a></li>
                     </ul>
@@ -2537,8 +2778,27 @@ Xem chi tiết
                 <div class="footer-col" >
                     <h4><i class="fa-solid fa-location-dot col-icon" style="color: #f7941d;"></i> HỆ THỐNG CỬA HÀNG</h4>
                     <p style="font-size: 17px; line-height: 1.6; margin-bottom: 15px;">Hệ thống cửa hàng Petopia trải dài khắp TP. Hồ Chí Minh</p>
-                    <a href="https://maps.app.goo.gl/upxYFEVHobfBSbx76" class="store-btn">XEM CỬA HÀNG GẦN BẠN</a>
+                    <button class="store-btn"
+            onclick="openStoreModal()">
+        XEM CỬA HÀNG GẦN BẠN
+    </button>
                 </div>
+                <div id="storeModal" class="store-modal">
+
+    <div class="store-modal-content">
+
+        <span class="close-btn"
+              onclick="closeStoreModal()">
+            &times;
+        </span>
+
+        <h2>Hệ Thống Cửa Hàng Petopia</h2>
+
+        <div id="storeContainer"></div>
+
+    </div>
+
+</div>
             </div>
         </div>
 
@@ -2660,6 +2920,46 @@ document.querySelectorAll(".grooming-faq-question")
 });
 
 </script>
+
+
+<!-- ===== AI CHATBOX ===== -->
+<div class="chat-fab" id="chatFab" title="Chat với Petopia AI">
+  <span class="chat-fab__icon">🐾</span>
+  <span class="chat-fab__badge" id="chatBadge"></span>
+</div>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-header__info">
+      <div class="chat-header__avatar">🐾</div>
+      <div>
+        <div class="chat-header__name">Petopia AI</div>
+        <div class="chat-header__status"><span class="chat-status-dot"></span> Đang hoạt động</div>
+      </div>
+    </div>
+    <button class="chat-header__close" id="chatClose" title="Đóng">✕</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages">
+    <!-- messages injected by JS -->
+  </div>
+
+  <div class="chat-quick-btns" id="quickBtns">
+    <button class="quick-btn" data-q="Dịch vụ grooming có gì?">🛁 Dịch vụ</button>
+    <button class="quick-btn" data-q="Bảng giá dịch vụ?">💰 Bảng giá</button>
+    <button class="quick-btn" data-q="Giờ làm việc?">🕐 Giờ mở cửa</button>
+    <button class="quick-btn" data-q="Cần chuẩn bị gì trước khi grooming?">📋 Chuẩn bị</button>
+  </div>
+
+  <div class="chat-input-row">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Nhắn tin cho Petopia AI..." maxlength="300"/>
+    <button class="chat-send-btn" id="chatSend">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+
+
 </body>
+<script src="../js/chatbox.js"></script>
 
 </html>

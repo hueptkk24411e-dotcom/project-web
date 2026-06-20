@@ -842,20 +842,6 @@ html {
     border-radius:0.5rem;
 }
 
-.reviews{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1.25rem;
-    margin-bottom:2.5rem;
-}
-
-.review-card{
-    background:#fff;
-    padding:1.25rem;
-    border-radius:0.75rem;
-    border:1px solid #eee;
-}
-
 .booking form{
     display:grid;
     gap:0.75rem;
@@ -967,31 +953,32 @@ html {
 }
 
     /* ĐÁNH GIÁ */
-    .reviews{
-    padding:1.25rem;
+.reviews{
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 2.5rem;
 }
 
 .reviews h2{
-    text-align:center;
-    color:#6b4b2a;
-    margin-bottom:1.875rem;
+    text-align: center;
+    color: #6b4b2a;
+    margin-bottom: 1.875rem;
 }
 
 .reviews-container{
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
-    align-items:stretch;
-    gap:1.5625rem;
+    display: flex;
+    width: 100%;
+    gap: 20px;
 }
 
 .review-card{
-    width:21.875rem;
-    padding:1.25rem;
-    border:1px solid #e5e5e5;
-    border-radius:0.75rem;
-    background:#fff;
+    flex: 1;
+    background: #fff;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid #eee;
 }
+
 
 .customer{
     display:flex;
@@ -1006,41 +993,6 @@ html {
     margin-right:0.625rem;
 }
 
-/* câu hỏi thường gặp */
-
-.faq-section{
-    background:#fff;
-}
-.hotel-faq-item{
-    border-bottom:1px solid green;
-    padding:0.625rem 0;
-}
-.hotel-faq-question{
-    width:100%;
-    padding:0.9375rem;
-    text-align:left;
-    cursor:pointer;
-    border:none;
-    background:white;
-}
-
-.hotel-faq-arrow{
-    transition:0.3s;
-}
-
-.hotel-faq-answer{
-    display:none;
-    padding:0.9375rem;
-    background:#f8f8f8;
-}
-
-.hotel-faq-item.active .hotel-faq-answer{
-    display:block;
-}
-
-.hotel-faq-item.active .hotel-faq-arrow{
-    transform:rotate(180deg);
-}
 /* đặt phòng */
 .booking-section{
     padding:1.25rem 0;
@@ -1063,16 +1015,14 @@ html {
     font-size:1.75rem;
     font-weight:700;
 }
-
-.hotel-booking-form{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:0.9375rem;
+.hotel-booking-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
-
-.hotel-form-group{
-    display:flex;
-    flex-direction:column;
+.hotel-form-group {
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group label{
@@ -1082,10 +1032,17 @@ html {
     color:#555;
 }
 
-.form-group label span{
-    color:red;
+.hotel-form-group label {
+    margin-bottom: 5px;
+    font-weight: 600;}
+.hotel-form-group input, .hotel-form-group select, .hotel-booking-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
-
+.full-width {
+    grid-column: span 2;
+}
 .form-group input,
 .form-group select,
 .form-group textarea{
@@ -1102,9 +1059,6 @@ html {
     border-color:orange;
 }
 
-.full-width{
-    grid-column:1/4;
-}
 
 textarea{
     resize:none;
@@ -2709,6 +2663,7 @@ html {
 .badge--dog       { background: #DBEAFE; color: #1D4ED8; }
 .badge--nutrition { background: #DCFCE7; color: #166534; }
 .badge--warning   { background: #FEE2E2; color: #B91C1C; }
+.badge--care      { background: #F3E8FF; color: #7E22CE; }
 .badge--sm        { font-size: 10px; padding: 3px 9px; }
 
 /* ─── SIDEBAR ────────────────────────────────────────────── */
@@ -2776,4 +2731,111 @@ html {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+.store-btn{
+    background:#f7941d;
+    color:white;
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    text-decoration:none;
+    cursor:pointer;
+    display:inline-block;
+}
+
+.store-btn:hover{
+    background:#e67e00;
+}
+
+.store-modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.6);
+    z-index:9999;
+}
+
+.store-modal-content{
+    width:80%;
+    max-width:900px;
+    background:white;
+    margin:50px auto;
+    padding:25px;
+    border-radius:15px;
+    max-height:80vh;
+    overflow-y:auto;
+}
+
+.close-btn{
+    float:right;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.store-card{
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    margin-top:15px;
+}
+
+.store-card h3{
+    color:#f7941d;
+    margin-bottom:10px;
+}
+
+.store-card p{
+    margin:5px 0;
+}
+
+.service-tag{
+    display:inline-block;
+    background:#fff4e5;
+    color:#f7941d;
+    padding:5px 10px;
+    border-radius:20px;
+    margin-right:5px;
+    margin-top:5px;
+}
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:9999;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    width:500px;
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    position:relative;
+}
+
+.modal-box input,
+.modal-box select,
+.modal-box textarea{
+    width:100%;
+    margin:10px 0;
+    padding:10px;
+    border:1px solid #3d9900;
+    border-radius:8px;
+}
+
+.close-btn{
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:25px;
+    cursor:pointer;
 }

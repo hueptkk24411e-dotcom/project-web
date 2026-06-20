@@ -745,6 +745,441 @@
           ]
         }
       ]
+    },
+    {
+      "id": "7-cach-de-ngoi-nha-khong-co-mui-thu-cung",
+      "categoryLabel": "Chăm sóc",
+      "badgeClass": "badge--care",
+      "title": "7 cách để ngôi nhà của bạn không có mùi của thú cưng",
+      "excerpt": "Những mẹo đơn giản giúp loại bỏ mùi hôi thú cưng trong nhà, từ việc vệ sinh thú cưng, dọn dẹp khu vực sinh hoạt đến sử dụng các sản phẩm làm sạch an toàn.",
+      "image": "https://images.contentstack.io/v3/assets/blt6f84e20c72a89efa/blt53205da717c19349/64c2c912c53087800bbc248e/article-keep_litter_box_from_smelling-slug-header-mobile@1.5x.jpg",
+      "date": "04 Thg 7, 2025",
+      "readTime": 8,
+      "author": "Pet Things",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Chúng tôi yêu những bé chó và mèo của mình, nhưng không thích những mùi hôi đi kèm với chúng. Từ mùi nhà vệ sinh, hơi thở cho đến mùi lông thú cưng, tất cả đều có thể khiến khách nhận ra bạn đang nuôi thú cưng ngay khi bước vào nhà."
+        },
+        {
+          "type": "paragraph",
+          "text": "May mắn thay, có nhiều cách giúp ngôi nhà luôn thơm tho và sạch sẽ hơn dù vẫn sống cùng những người bạn bốn chân."
+        },
+        {
+          "type": "heading",
+          "text": "1. Lên lịch tắm cho thú cưng"
+        },
+        {
+          "type": "paragraph",
+          "text": "Tắm định kỳ giúp loại bỏ mùi hôi và giữ cơ thể thú cưng sạch sẽ. Chó thường nên được tắm từ 4–6 tuần một lần, trong khi mèo cũng cần được hỗ trợ vệ sinh định kỳ."
+        },
+        {
+          "type": "heading",
+          "text": "2. Giữ thú cưng sạch sẽ giữa các lần tắm"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sử dụng khăn ướt kháng khuẩn hoặc chải lông thường xuyên để loại bỏ bụi bẩn, lông rụng và da chết giữa các lần tắm."
+        },
+        {
+          "type": "heading",
+          "text": "3. Vệ sinh ổ nằm của thú cưng thường xuyên"
+        },
+        {
+          "type": "paragraph",
+          "text": "Giường và nệm của thú cưng hấp thụ nhiều mùi hôi, nước dãi và vi khuẩn. Hãy giặt hoặc vệ sinh chúng ít nhất mỗi tuần một lần."
+        },
+        {
+          "type": "heading",
+          "text": "4. Dọn sạch cát vệ sinh cho mèo hàng ngày"
+        },
+        {
+          "type": "paragraph",
+          "text": "Loại bỏ phân và nước tiểu mỗi ngày, thay cát định kỳ và vệ sinh khay thường xuyên để hạn chế mùi hôi."
+        },
+        {
+          "type": "heading",
+          "text": "5. Cho thú cưng ăn chế độ dinh dưỡng lành mạnh"
+        },
+        {
+          "type": "paragraph",
+          "text": "Dinh dưỡng kém có thể gây tiêu hóa không tốt, tiêu chảy và làm phát sinh mùi khó chịu. Hãy lựa chọn thực phẩm cân bằng và phù hợp với từng thú cưng."
+        },
+        {
+          "type": "heading",
+          "text": "6. Xử lý ngay các sự cố vệ sinh"
+        },
+        {
+          "type": "paragraph",
+          "text": "Khi thú cưng đi vệ sinh không đúng chỗ, cần làm sạch ngay bằng các sản phẩm khử mùi chuyên dụng để tránh mùi bám lâu trong nhà."
+        },
+        {
+          "type": "heading",
+          "text": "7. Sử dụng sản phẩm làm sạch không khí an toàn"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ưu tiên các sản phẩm có thành phần tự nhiên và an toàn cho vật nuôi. Tránh sử dụng các loại tinh dầu hoặc hóa chất có thể gây độc cho chó mèo."
+        }
+      ]
+    },
+    {
+  "id": "bien-doi-khi-hau-anh-huong-den-thu-cung",
+  "categoryLabel": "Sức khỏe",
+  "badgeClass": "badge--health",
+  "title": "Biến đổi khí hậu ảnh hưởng đến thú cưng như thế nào?",
+  "excerpt": "Biến đổi khí hậu đang làm gia tăng nguy cơ mắc các bệnh do ký sinh trùng truyền sang thú cưng như giun tim, Lyme, bọ chét và nhiều bệnh truyền nhiễm khác.",
+  "image": "https://www.petful.com/wp-content/uploads/2018/12/happy-1845090_1280.jpg",
+  "date": "04/12/2018",
+  "readTime": 12,
+  "author": "Tiến sĩ Debora Lichtenberg, VMD",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Biến đổi khí hậu đang tác động trực tiếp đến thú cưng thông qua nhiệt độ tăng cao, thời tiết khắc nghiệt và sự gia tăng của các loại ký sinh trùng gây bệnh."
+    },
+    {
+      "type": "heading",
+      "text": "Ký sinh trùng trở nên nguy hiểm hơn"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nhiệt độ ấm hơn và độ ẩm cao tạo điều kiện thuận lợi cho bọ ve, muỗi, bọ chét và các loại ký sinh trùng phát triển mạnh hơn, kéo dài thời gian hoạt động và phạm vi lây nhiễm."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Giun tim",
+        "Bệnh do ve truyền",
+        "Nhiễm bọ chét",
+        "Bệnh ký sinh trùng đường hô hấp",
+        "Bệnh ký sinh trùng đường tiêu hóa",
+        "Các bệnh lây từ động vật sang người"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Ký sinh trùng đang mở rộng lãnh thổ"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nhiều bệnh trước đây chỉ xuất hiện ở một số khu vực nhất định nay đã lan rộng sang nhiều vùng khác do khí hậu thay đổi."
+    },
+    {
+      "type": "heading",
+      "text": "Bọ chét và các bệnh liên quan"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bọ chét không chỉ gây ngứa và viêm da mà còn là vật trung gian truyền nhiều bệnh nguy hiểm cho chó mèo."
+    },
+    {
+      "type": "heading",
+      "text": "Bệnh sốt thỏ (Tularemia)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Lây qua bọ chét, ve hoặc ruồi hươu. Bệnh có thể gây sốt, sưng hạch và cũng có khả năng lây sang người."
+    },
+    {
+      "type": "heading",
+      "text": "Bartonella"
+    },
+    {
+      "type": "paragraph",
+      "text": "Vi khuẩn Bartonella có thể lây qua bọ chét và ve. Mèo thường không có triệu chứng nhưng có thể truyền bệnh cho người."
+    },
+    {
+      "type": "heading",
+      "text": "Bệnh huyết khối (Hemoplasmosis)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Một dạng ký sinh trùng máu ở mèo có thể gây thiếu máu nghiêm trọng và cần điều trị chuyên sâu."
+    },
+    {
+      "type": "heading",
+      "text": "Ký sinh trùng đường ruột"
+    },
+    {
+      "type": "paragraph",
+      "text": "Giun tròn, giun móc, giun roi và cầu trùng đang trở nên phổ biến hơn khi điều kiện khí hậu thay đổi."
+    },
+    {
+      "type": "heading",
+      "text": "Nguy cơ đối với con người"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nhiều ký sinh trùng có thể lây từ động vật sang người, làm gia tăng các bệnh truyền nhiễm trong cộng đồng."
+    },
+    {
+      "type": "heading",
+      "text": "Phòng chống ký sinh trùng"
+    },
+    {
+      "type": "paragraph",
+      "text": "Việc phòng ngừa giun tim, ve rận, bọ chét và tẩy giun định kỳ quanh năm ngày càng trở nên cần thiết."
+    },
+    {
+      "type": "heading",
+      "text": "Điều trị không phải lúc nào cũng thành công"
+    },
+    {
+      "type": "paragraph",
+      "text": "Một số bệnh như giun tim hoặc Lyme có thể khó điều trị và gây biến chứng nghiêm trọng nếu phát hiện muộn."
+    },
+    {
+      "type": "heading",
+      "text": "Kháng ký sinh trùng"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nhiều loại ký sinh trùng đang phát triển khả năng kháng thuốc, khiến việc kiểm soát trở nên khó khăn hơn trong tương lai."
+    },
+    {
+      "type": "paragraph",
+      "text": "Biến đổi khí hậu không chỉ ảnh hưởng đến môi trường mà còn làm gia tăng nguy cơ bệnh tật cho thú cưng và con người. Chủ nuôi cần chủ động phòng ngừa ký sinh trùng quanh năm để bảo vệ sức khỏe cho vật nuôi."
+    }
+  ]
+},
+{
+  "id": "5-ly-do-khien-meo-di-ve-sinh-sai-cho",
+  "categoryLabel": "Chăm sóc mèo",
+  "badgeClass": "badge--cat",
+  "title": "5 Lý Do Khiến Mèo Đi Vệ Sinh Sai Chỗ",
+  "excerpt": "Mèo đi vệ sinh ngoài khay cát có thể xuất phát từ vấn đề sức khỏe, khay vệ sinh không phù hợp, nhà nhiều mèo, căng thẳng tâm lý hoặc hành vi đánh dấu lãnh thổ.",
+  "image": "https://file.hstatic.net/1000217401/article/hinh_blogs_website__17__1d23659c903e4440b565961a4ed84c9b_grande.png",
+  "date": "04/07/2025",
+  "readTime": 8,
+  "author": "Đội ngũ Petopia",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Mèo đi vệ sinh ngoài khay cát là một trong những vấn đề phổ biến mà nhiều người nuôi mèo gặp phải. Có nhiều nguyên nhân khác nhau dẫn đến hành vi này và việc xác định đúng nguyên nhân là bước đầu tiên để giải quyết hiệu quả."
+    },
+    {
+      "type": "heading",
+      "text": "1. Vấn đề sức khỏe"
+    },
+    {
+      "type": "paragraph",
+      "text": "Các bệnh như nhiễm trùng đường tiết niệu, sỏi bàng quang hoặc viêm bàng quang có thể khiến mèo đau khi đi tiểu và né tránh việc sử dụng khay cát."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Nhiễm trùng đường tiết niệu (UTI)",
+        "Sỏi bàng quang",
+        "Viêm bàng quang",
+        "Tiểu ra máu",
+        "Tiểu nhiều lần với lượng ít"
+      ]
+    },
+    {
+      "type": "tip",
+      "title": "Cách xử lý",
+      "text": "Đưa mèo đến bác sĩ thú y để kiểm tra và điều trị kịp thời, không tự ý sử dụng thuốc."
+    },
+    {
+      "type": "heading",
+      "text": "2. Khay vệ sinh hoặc cát vệ sinh không phù hợp"
+    },
+    {
+      "type": "paragraph",
+      "text": "Khay cát bẩn, kích thước không phù hợp hoặc thay đổi loại cát đột ngột đều có thể khiến mèo từ chối sử dụng khay vệ sinh."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Khay cát quá bẩn",
+        "Đổi loại cát đột ngột",
+        "Đổi vị trí đặt khay",
+        "Nhà nhiều mèo nhưng thiếu khay",
+        "Khay quá kín",
+        "Khay quá nhỏ"
+      ]
+    },
+    {
+      "type": "tip",
+      "title": "Cách xử lý",
+      "text": "Dọn khay hàng ngày, đặt ở nơi yên tĩnh, sử dụng khay đủ lớn và chuẩn bị số khay theo nguyên tắc số mèo + 1."
+    },
+    {
+      "type": "heading",
+      "text": "3. Nhà nuôi nhiều mèo"
+    },
+    {
+      "type": "paragraph",
+      "text": "Trong môi trường nhiều mèo, những con mạnh hơn có thể khiến các cá thể nhút nhát không dám sử dụng khay cát chung."
+    },
+    {
+      "type": "tip",
+      "title": "Cách xử lý",
+      "text": "Bố trí nhiều khay cát ở các khu vực khác nhau để giảm cạnh tranh và tạo không gian riêng tư cho từng mèo."
+    },
+    {
+      "type": "heading",
+      "text": "4. Mèo bị stress hoặc lo âu"
+    },
+    {
+      "type": "paragraph",
+      "text": "Những thay đổi trong môi trường sống như chuyển nhà, thêm thành viên mới hoặc thay đổi thói quen sinh hoạt có thể làm mèo căng thẳng và đi vệ sinh sai chỗ."
+    },
+    {
+      "type": "tip",
+      "title": "Cách xử lý",
+      "text": "Giữ môi trường ổn định, tạo nơi trú ẩn an toàn và hạn chế các tác nhân gây căng thẳng cho mèo."
+    },
+    {
+      "type": "heading",
+      "text": "5. Hành vi đánh dấu lãnh thổ"
+    },
+    {
+      "type": "paragraph",
+      "text": "Mèo chưa triệt sản thường đánh dấu lãnh thổ bằng nước tiểu, đặc biệt khi phát hiện sự hiện diện của động vật khác."
+    },
+    {
+      "type": "tip",
+      "title": "Cách xử lý",
+      "text": "Triệt sản và vệ sinh kỹ những khu vực mèo từng đánh dấu để giảm khả năng tái diễn."
+    },
+    {
+      "type": "heading",
+      "text": "Những điều không nên làm"
+    },
+    {
+      "type": "warning",
+      "text": "Không la mắng, đánh đập hoặc dụi mặt mèo vào nơi mèo đi vệ sinh sai chỗ vì chỉ làm tăng căng thẳng và khiến hành vi trở nên nghiêm trọng hơn."
+    },
+    {
+      "type": "warning",
+      "text": "Không sử dụng chất tẩy rửa chứa amoniac vì mùi tương tự nước tiểu có thể khiến mèo tiếp tục đi bậy ở cùng vị trí."
+    },
+    {
+      "type": "heading",
+      "text": "Kết luận"
+    },
+    {
+      "type": "paragraph",
+      "text": "Để giải quyết tình trạng mèo đi vệ sinh ngoài khay cát, cần ưu tiên kiểm tra sức khỏe, cải thiện điều kiện sử dụng khay vệ sinh, giảm căng thẳng và xử lý các vấn đề hành vi. Sự kiên nhẫn và quan sát kỹ lưỡng sẽ giúp tìm ra nguyên nhân thực sự."
+    }
+  ]
+},
+{
+  "id": "khay-ve-sinh-cho-meo-nen-chon-loai-co-nap-hay-khong-nap",
+  "categoryLabel": "Chăm sóc mèo",
+  "badgeClass": "badge--cat",
+  "title": "Khay vệ sinh cho mèo: Nên chọn loại có nắp hay không nắp?",
+  "excerpt": "Khay vệ sinh có nắp và không nắp đều có ưu nhược điểm riêng. Điều quan trọng nhất không phải là có nắp hay không mà là kích thước phù hợp, độ sạch sẽ và sự thoải mái của mèo.",
+  "image": "https://images.contentstack.io/v3/assets/blt6f84e20c72a89efa/blt53205da717c19349/64c2c912c53087800bbc248e/article-keep_litter_box_from_smelling-slug-header-mobile@1.5x.jpg",
+  "date": "04/07/2025",
+  "readTime": 6,
+  "author": "Đội ngũ Petopia",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Sau nhiều năm nuôi mèo và trải nghiệm nhiều loại khay vệ sinh khác nhau, câu hỏi phổ biến nhất là nên chọn khay có nắp hay không có nắp. Câu trả lời phụ thuộc vào đặc điểm và sở thích của từng chú mèo."
+    },
+    {
+      "type": "heading",
+      "text": "Nghiên cứu khoa học nói gì?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Một nghiên cứu năm 2013 trên 27 chú mèo khỏe mạnh cho thấy phần lớn mèo không có sự ưu tiên rõ ràng giữa khay vệ sinh có nắp và không nắp. Có tới 19 trong số 27 con mèo sử dụng cả hai loại như nhau."
+    },
+    {
+      "type": "heading",
+      "text": "Khay vệ sinh có nắp"
+    },
+    {
+      "type": "subheading",
+      "text": "Ưu điểm"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Giữ mùi bên trong khay tốt hơn",
+        "Hạn chế cát văng ra sàn",
+        "Tạo không gian riêng tư cho mèo nhút nhát"
+      ]
+    },
+    {
+      "type": "subheading",
+      "text": "Nhược điểm"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Không gian bên trong hạn chế",
+        "Mèo lớn trên 6kg khó xoay trở",
+        "Mùi hôi dễ tích tụ bên trong",
+        "Mèo khó quan sát xung quanh",
+        "Chủ nuôi dễ quên dọn vệ sinh"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Khay vệ sinh không nắp"
+    },
+    {
+      "type": "subheading",
+      "text": "Ưu điểm"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Thông thoáng, ít tích tụ mùi",
+        "Mèo dễ quan sát môi trường xung quanh",
+        "Tạo cảm giác an toàn hơn",
+        "Dễ vệ sinh và làm sạch"
+      ]
+    },
+    {
+      "type": "subheading",
+      "text": "Nhược điểm"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mùi có thể lan ra ngoài",
+        "Cát dễ bị văng ra sàn",
+        "Không tạo được sự riêng tư cho một số mèo"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Bí kíp lựa chọn khay vệ sinh"
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Ưu tiên kích thước lớn và thoải mái hơn là kiểu dáng có nắp hay không nắp",
+        "Luôn giữ khay vệ sinh sạch sẽ bằng cách dọn dẹp thường xuyên",
+        "Nếu có điều kiện, hãy cho mèo trải nghiệm cả hai loại để tự lựa chọn"
+      ]
+    },
+    {
+      "type": "tip",
+      "title": "Lưu ý",
+      "text": "Chiều dài lòng khay nên tối thiểu bằng 1.5 lần chiều dài cơ thể mèo để đảm bảo mèo có thể xoay trở thoải mái."
+    },
+    {
+      "type": "tip",
+      "title": "Khuyến nghị cho mèo lớn",
+      "text": "Những chú mèo trên 6kg thường phù hợp với khay vệ sinh không nắp vì có nhiều không gian hơn khi sử dụng."
+    },
+    {
+      "type": "heading",
+      "text": "Kết luận"
+    },
+    {
+      "type": "paragraph",
+      "text": "Không có loại khay vệ sinh nào hoàn hảo cho mọi chú mèo. Điều quan trọng nhất là kích thước phù hợp, vị trí đặt hợp lý, vệ sinh thường xuyên và đáp ứng được sở thích của mèo. Một chiếc khay rộng rãi, sạch sẽ luôn mang lại hiệu quả tốt hơn việc chỉ tập trung vào yếu tố có nắp hay không nắp."
     }
   ]
 }
+      ]
+    }
+  
